@@ -3,8 +3,7 @@ import java.util.Objects;
 public  final class Position {
     final int row;
     final int col;
-    double colCount;
-    double rowCount;
+
     public Position(int row, int col) {
         this.row = row;
         this.col = col;
@@ -39,7 +38,7 @@ public  final class Position {
                 "col=" + col + ']';
     }
 
-    public static Position randomPosition() {
+    public static Position randomPosition(int rowCount, int colCount) {
         return new Position((int) (Math.random() * rowCount), (int) (Math.random() * colCount));
     }
 

@@ -11,14 +11,6 @@ public abstract class Element {
     abstract void activation();
     abstract Position activate(Position position);
 
-    List<Position> next(Position position) {
-        List<Position> list = new ArrayList<>();
-        if (position.row > 0) list.add(new Position(position.row - 1, position.col));
-        if (position.col > 0) list.add(new Position(position.row, position.col - 1));
-        if (position.row < rowCount - 1) list.add(new Position(position.row + 1, position.col));
-        if (position.col < colCount - 1) list.add(new Position(position.row, position.col + 1));
-        return list;
-    }
 
 
 }

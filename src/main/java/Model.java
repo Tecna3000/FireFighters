@@ -80,7 +80,7 @@ public class Model {
     grid.paint(position.row, position.col);
   }
 
-  private List<Position> next(Position position) {
+  List<Position> next(Position position) {
     List<Position> list = new ArrayList<>();
     if (position.row > 0) list.add(new Position(position.row - 1, position.col));
     if (position.col > 0) list.add(new Position(position.row, position.col - 1));

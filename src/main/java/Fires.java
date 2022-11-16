@@ -13,7 +13,7 @@ public class Fires extends Element{
     @Override
     void initialisation(int number) {
         for (int index = 0; index < number; index++)
-            model.fires.add(Position.randomPosition());
+            model.fires.add(Position.randomPosition((int) super.rowCount, (int) super.colCount));
     }
 
     @Override
@@ -21,7 +21,7 @@ public class Fires extends Element{
         if (model.step % 2 == 0) {
             List<Position> newFires = new ArrayList<>();
             for (Position fire : model.fires) {
-                newFires.addAll(next(fire));
+                newFires.addAll(model.next(fire));
             }
             for (Position newFire : newFires)
                 model.grid.paintFire(newFire.row, newFire.col);

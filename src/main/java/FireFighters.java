@@ -10,7 +10,7 @@ public class FireFighters extends Element{
     @Override
     void initialisation(int number) {
         for (int index = 0; index < number; index++)
-            model.firefighters.add(Position.randomPosition());
+            model.firefighters.add(Position.randomPosition((int) super.rowCount, (int) super.colCount));
 
     }
 
@@ -34,7 +34,7 @@ public class FireFighters extends Element{
     }
      Position activate(Position position) {
         Position randomPosition = aStepTowardFire(position);
-        List<Position> nextFires = next(randomPosition).stream().filter(model.fires::contains).toList();
+        List<Position> nextFires = model.next(randomPosition).stream().filter(model.fires::contains).toList();
         extinguish(randomPosition);
         for (Position fire : nextFires)
             extinguish(fire);
@@ -45,14 +45,14 @@ public class FireFighters extends Element{
         Queue<Position> toVisit = new LinkedList<>();
         Set<Position> seen = new HashSet<>();
         HashMap<Position, Position> firstMove = new HashMap<>();
-        toVisit.addAll(next(position));
+        toVisit.addAll(model.next(position));
         for (Position initialMove : toVisit)
             firstMove.put(initialMove, initialMove);
         while (!toVisit.isEmpty()) {
             Position current = toVisit.poll();
             if (model.fires.contains(current))
                 return firstMove.get(current);
-            for (Position adjacent : next(current)) {
+            for (Position adjacent : model.next(current)) {
                 if (seen.contains(adjacent)) continue;
                 toVisit.add(adjacent);
                 seen.add(adjacent);
