@@ -3,7 +3,8 @@ import java.util.Objects;
 public  final class Position {
     final int row;
     final int col;
-
+    double colCount;
+    double rowCount;
     public Position(int row, int col) {
         this.row = row;
         this.col = col;
@@ -30,11 +31,16 @@ public  final class Position {
         return Objects.hash(row, col);
     }
 
+
     @Override
     public String toString() {
         return "Position[" +
                 "row=" + row + ", " +
                 "col=" + col + ']';
+    }
+
+    Position randomPosition() {
+        return new Position((int) (Math.random() * rowCount), (int) (Math.random() * colCount));
     }
 
 }
