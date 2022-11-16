@@ -18,12 +18,14 @@ public class Grid extends Canvas{
         this.rowCount = rowCount;
         setFocusTraversable(true);
         setOnMousePressed(this::mousePressed);
-        model = new Model(this);
+        model = Model.getInstance();
+        model.setGrid(this);
         model.initialisation(3,8);
     }
 
     public void restart(MouseEvent mouseEvent){
-        model = new Model(this);
+        model = Model.getInstance();
+        model.setGrid(this);
         model.initialisation(3,6);
         getGraphicsContext2D().clearRect(0,0,width, height);
         repaint();

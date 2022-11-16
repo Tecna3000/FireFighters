@@ -1,44 +1,40 @@
 import java.util.*;
 
-public class FireFighter extends Element{
-    private Position position;
-    List<Position> firefighters = new ArrayList<>();
-    List<Position> ffNewPositions;
-    Set<Position> fires = new HashSet<>();
-    int step = 0;
-    Grid grid;;
-    public FireFighter(Position position) {
-        super();
-        this.position = position;
+public class FireFighters extends Element{
+
+
+    public FireFighters(Model model) {
+        super(model);
     }
 
     @Override
     void initialisation(int number) {
         for (int index = 0; index < number; index++)
-            firefighters.add(position.randomPosition());
+            model.firefighters.add(Position.randomPosition());
 
     }
+
 
     @Override
     void activation() {
-        ffNewPositions = new ArrayList<>();
-        for (Position ff : firefighters) {
-            Position newPosition = activateFirefighter(ff);
-            grid.paint(ff.row, ff.col);
-            grid.paintFF(newPosition.row, newPosition.col);
-            ffNewPositions.add(newPosition);
+        model.ffNewPositions = new ArrayList<>();
+        for (Position ff : model.firefighters) {
+            Position newPosition = activate(ff);
+            model.grid.paint(ff.row, ff.col);
+            model.grid.paintFF(newPosition.row, newPosition.col);
+            model.ffNewPositions.add(newPosition);
         }
-        firefighters = ffNewPositions;
-        step++;
+        model.firefighters = model.ffNewPositions;
+        model.step++;
     }
 
     private void extinguish(Position position) {
-        fires.remove(position);
-        grid.paint(position.row, position.col);
+        model.fires.remove(position);
+        model.grid.paint(position.row, position.col);
     }
-    private Position activateFirefighter(Position position) {
+     Position activate(Position position) {
         Position randomPosition = aStepTowardFire(position);
-        List<Position> nextFires = next(randomPosition).stream().filter(fires::contains).toList();
+        List<Position> nextFires = next(randomPosition).stream().filter(model.fires::contains).toList();
         extinguish(randomPosition);
         for (Position fire : nextFires)
             extinguish(fire);
@@ -54,7 +50,7 @@ public class FireFighter extends Element{
             firstMove.put(initialMove, initialMove);
         while (!toVisit.isEmpty()) {
             Position current = toVisit.poll();
-            if (fires.contains(current))
+            if (model.fires.contains(current))
                 return firstMove.get(current);
             for (Position adjacent : next(current)) {
                 if (seen.contains(adjacent)) continue;

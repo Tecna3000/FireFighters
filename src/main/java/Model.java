@@ -10,7 +10,17 @@ public class Model {
   List<Position> ffNewPositions;
   int step = 0;
 
-  public Model(Grid grid) {
+  private static Model model;
+
+  public static Model getInstance(){
+    if (model == null)
+      model=new Model();
+    return model;
+  }
+   public void setGrid(Grid grid){
+     this.grid = grid;
+   }
+  private Model() {
     this.grid = grid;
     colCount = grid.colCount;
     rowCount = grid.rowCount;
