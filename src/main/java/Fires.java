@@ -1,7 +1,5 @@
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 public class Fires extends Element{
 
@@ -12,22 +10,29 @@ public class Fires extends Element{
 
     @Override
     void initialisation(int number) {
-        for (int index = 0; index < number; index++)
-            model.fires.add(Position.randomPosition((int) super.rowCount, (int) super.colCount));
+        for (int index = 0; index < number; index++){
+            model.firesList.add(randomPosition());
+        }
+
     }
 
     @Override
     void activation() {
+        System.out.println(model.step);
         if (model.step % 2 == 0) {
             List<Position> newFires = new ArrayList<>();
-            for (Position fire : model.fires) {
+            for (Position fire : model.firesList) {
                 newFires.addAll(model.next(fire));
             }
+            System.out.println(newFires);
+
+            model.firesList.addAll(newFires);
             for (Position newFire : newFires)
                 model.grid.paintFire(newFire.row, newFire.col);
-            model.fires.addAll(newFires);
+
         }
         model.step++;
+
     }
 
     @Override
