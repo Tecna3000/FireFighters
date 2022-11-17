@@ -31,7 +31,7 @@ public class Fires extends Element{
     }
 
     @Override
-    Position activate(Position position) {
+    Position move(Position position) {
         return null;
     }
 

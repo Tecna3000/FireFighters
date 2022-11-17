@@ -19,14 +19,11 @@ public class Model {
 
   public void initialisation(int fireNumber, int fireFighterNumber) {
     for (int index = 0; index < fireNumber; index++)
-      fires.add(randomPosition());
+      fires.add(Position.randomPosition(rowCount,colCount));
     for (int index = 0; index < fireFighterNumber; index++)
-      firefighters.add(randomPosition());
+      firefighters.add(Position.randomPosition(rowCount, colCount));
   }
 
-  private Position randomPosition() {
-    return new Position((int) (Math.random() * rowCount), (int) (Math.random() * colCount));
-  }
 
 
   public void activation() {

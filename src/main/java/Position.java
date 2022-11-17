@@ -38,7 +38,7 @@ public  final class Position {
                 "col=" + col + ']';
     }
 
-    public static Position randomPosition(int rowCount, int colCount) {
+    public static Position randomPosition(double rowCount, double colCount) {
         return new Position((int) (Math.random() * rowCount), (int) (Math.random() * colCount));
     }
 

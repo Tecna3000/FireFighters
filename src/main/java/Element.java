@@ -1,6 +1,3 @@
-import java.util.ArrayList;
-import java.util.List;
-
 public abstract class Element {
     double colCount;
     double rowCount;
@@ -9,7 +6,7 @@ public abstract class Element {
     }
     abstract  void initialisation(int number);
     abstract void activation();
-    abstract Position activate(Position position);
+    abstract Position move(Position position);
 
 
 

@@ -19,7 +19,7 @@ public class FireFighters extends Element{
     void activation() {
         model.ffNewPositions = new ArrayList<>();
         for (Position ff : model.firefighters) {
-            Position newPosition = activate(ff);
+            Position newPosition = move(ff);
             model.grid.paint(ff.row, ff.col);
             model.grid.paintFF(newPosition.row, newPosition.col);
             model.ffNewPositions.add(newPosition);
@@ -32,7 +32,7 @@ public class FireFighters extends Element{
         model.fires.remove(position);
         model.grid.paint(position.row, position.col);
     }
-     Position activate(Position position) {
+     Position move(Position position) {
         Position randomPosition = aStepTowardFire(position);
         List<Position> nextFires = model.next(randomPosition).stream().filter(model.fires::contains).toList();
         extinguish(randomPosition);
