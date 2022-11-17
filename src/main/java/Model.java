@@ -10,17 +10,7 @@ public class Model {
   List<Position> ffNewPositions;
   int step = 0;
 
-  private static Model model;
-
-  public static Model getInstance(){
-    if (model == null)
-      model=new Model();
-    return model;
-  }
-   public void setGrid(Grid grid){
-     this.grid = grid;
-   }
-  private Model() {
+  public Model(Grid grid) {
     this.grid = grid;
     colCount = grid.colCount;
     rowCount = grid.rowCount;
@@ -109,4 +99,5 @@ public class Model {
     }
     return position;
   }
+
 }
