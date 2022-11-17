@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class FireFighters extends Element{
+public class FireFighters extends Elements {
 
 
     public FireFighters(Model model) {

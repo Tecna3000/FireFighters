@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Fires extends Element{
+public class Fires extends Elements {
 
     public Fires(Model model) {
         super(model);

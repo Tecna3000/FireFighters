@@ -1,6 +1,9 @@
 import javafx.scene.canvas.Canvas;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
+
+import java.awt.*;
 
 public class Grid extends Canvas{
     double width;
@@ -8,7 +11,7 @@ public class Grid extends Canvas{
     double colCount;
     double rowCount;
     Model model;
-
+    ImageView fire = new ImageView("images/flamme.png");
 
     public Grid(int width, int height, int colCount, int rowCount) {
         super(width,height);

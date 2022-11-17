@@ -12,9 +12,9 @@ public class Model {
     Set<Position> firesList = new HashSet<>();
     List<Position> ffNewPositions;
     int step = 0;
-    List<Element> elements = new ArrayList<>();
-    Element fireFighters = new FireFighters(this) ;
-    Element fires = new Fires(this);
+    List<Elements> elements = new ArrayList<>();
+    Elements fireFighters = new FireFighters(this) ;
+    Elements fires = new Fires(this);
 
     public Model(Grid grid) {
         this.grid = grid;

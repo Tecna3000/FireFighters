@@ -1,8 +1,6 @@
-public abstract class Element {
-    double colCount;
-    double rowCount;
+public abstract class Elements {
     Model model;
-    public Element(Model model) {
+    public Elements(Model model) {
         this.model=model;
     }
     abstract  void initialisation(int number);
