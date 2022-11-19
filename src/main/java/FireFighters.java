@@ -3,6 +3,8 @@ import java.util.*;
 public class FireFighters extends Elements {
 
 
+    List<Position> firefightersList = new ArrayList<>();
+    List<Position> ffNewPositions;
     public FireFighters(Model model) {
         super(model);
     }
@@ -10,7 +12,7 @@ public class FireFighters extends Elements {
     @Override
     void initialisation(int number) {
         for (int index = 0; index < number; index++)
-            model.firefightersList.add(randomPosition());
+            firefightersList.add(randomPosition());
 
     }
 
@@ -18,24 +20,24 @@ public class FireFighters extends Elements {
     @Override
     void activation() {
 
-        model.ffNewPositions = new ArrayList<>();
-        for (Position ff : model.firefightersList) {
+        ffNewPositions = new ArrayList<>();
+        for (Position ff : firefightersList) {
             Position newPosition = move(ff);
             model.grid.paint(ff.row, ff.col);
             model.grid.paintFF(newPosition.row, newPosition.col);
-            model.ffNewPositions.add(newPosition);
+         ffNewPositions.add(newPosition);
         }
-        model.firefightersList = model.ffNewPositions;
+       firefightersList = ffNewPositions;
 
     }
 
     private void extinguish(Position position) {
-        model.firesList.remove(position);
+        Fires.firesList.remove(position);
         model.grid.paint(position.row, position.col);
     }
      Position move(Position position) {
         Position randomPosition = aStepTowardFire(position);
-        List<Position> nextFires = model.next(randomPosition).stream().filter(model.firesList::contains).toList();
+        List<Position> nextFires = model.next(randomPosition).stream().filter(Fires.firesList::contains).toList();
         extinguish(randomPosition);
         for (Position fire : nextFires)
             extinguish(fire);
@@ -51,7 +53,7 @@ public class FireFighters extends Elements {
             firstMove.put(initialMove, initialMove);
         while (!toVisit.isEmpty()) {
             Position current = toVisit.poll();
-            if (model.firesList.contains(current))
+            if (Fires.firesList.contains(current))
                 return firstMove.get(current);
             for (Position adjacent : model.next(current)) {
                 if (seen.contains(adjacent)) continue;

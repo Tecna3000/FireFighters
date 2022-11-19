@@ -15,7 +15,6 @@ public class Grid extends Canvas{
 
     Image fireImage = new Image( new File("../firefighterstarter/src/main/images/flamme.png").toURI().toURL().toString());
     Image ffImage = new Image( new File("../firefighterstarter/src/main/images/firefighter.png").toURI().toURL().toString());
-    Image elementImage = new Image( new File("").toURI().toURL().toString());
     public Grid(int width, int height, int colCount, int rowCount) throws MalformedURLException {
         super(width,height);
         this.width = width;
@@ -58,10 +57,6 @@ public class Grid extends Canvas{
 
     public void paintFire(int row, int col) {
         getGraphicsContext2D().drawImage(fireImage,row*height/rowCount,col*width/colCount,height/rowCount,width/colCount);
-    }
-
-    public void paintElement(int row, int col) {
-        getGraphicsContext2D().drawImage(elementImage,row*height/rowCount,col*width/colCount,height/rowCount,width/colCount);
     }
 
 }

@@ -8,9 +8,7 @@ public class Model {
     Grid grid;
     double colCount;
     double rowCount;
-    List<Position> firefightersList = new ArrayList<>();
-    Set<Position> firesList = new HashSet<>();
-    List<Position> ffNewPositions;
+
     int step = 0;
     List<Elements> elements = new ArrayList<>();
     Elements fireFighters = new FireFighters(this) ;
