@@ -23,8 +23,8 @@ public class FireFighters extends Elements {
         ffNewPositions = new ArrayList<>();
         for (Position ff : firefightersList) {
             Position newPosition = move(ff);
-            model.grid.painter.paint(ff.row, ff.col);
-            model.grid.painter.paintFF(newPosition.row, newPosition.col);
+            model.grid.paint(ff.row, ff.col);
+            model.grid.paintFF(newPosition.row, newPosition.col);
          ffNewPositions.add(newPosition);
         }
        firefightersList = ffNewPositions;
@@ -33,7 +33,7 @@ public class FireFighters extends Elements {
 
     private void extinguish(Position position) {
         Fires.firesList.remove(position);
-        model.grid.painter.paint(position.row, position.col);
+        model.grid.paint(position.row, position.col);
     }
      Position move(Position position) {
         Position randomPosition = aStepTowardFire(position);

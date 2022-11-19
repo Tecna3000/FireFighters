@@ -1,11 +1,12 @@
+
 import javafx.scene.canvas.Canvas;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
-
+import java.io.File;
 import java.net.MalformedURLException;
 
+import javafx.scene.image.Image;
 public class Grid extends Canvas{
-    public Painter painter;
     double width;
     double height;
     double colCount;
@@ -13,6 +14,9 @@ public class Grid extends Canvas{
     Model model;
 
 
+    Image fireImage = new Image( new File("../firefighterstarter/src/main/images/flamme.png").toURI().toURL().toString());
+    Image ffImage = new Image( new File("../firefighterstarter/src/main/images/firefighter.png").toURI().toURL().toString());
+    Image elementImage = new Image( new File("").toURI().toURL().toString());
     public Grid(int width, int height, int colCount, int rowCount) throws MalformedURLException {
         super(width,height);
         this.width = width;
@@ -21,7 +25,6 @@ public class Grid extends Canvas{
         this.rowCount = rowCount;
         setFocusTraversable(true);
         setOnMousePressed(this::mousePressed);
-        painter = new Painter(width,height,colCount,rowCount);
         model = new Model(this);
         model.initialisation(3,8);
     }
@@ -45,5 +48,21 @@ public class Grid extends Canvas{
 
     }
 
+    void paint(int row, int col){
+        getGraphicsContext2D().setFill(Color.WHITE);
+        getGraphicsContext2D().fillRect(row*height/rowCount,col*width/colCount,height/rowCount,width/colCount);
+    }
+
+    public void paintFF(int row, int col) {
+        getGraphicsContext2D().drawImage(ffImage,row*height/rowCount,col*width/colCount,height/rowCount,width/colCount);
+    }
+
+    public void paintFire(int row, int col) {
+        getGraphicsContext2D().drawImage(fireImage,row*height/rowCount,col*width/colCount,height/rowCount,width/colCount);
+    }
+
+    public void paintElement(int row, int col) {
+        getGraphicsContext2D().drawImage(elementImage,row*height/rowCount,col*width/colCount,height/rowCount,width/colCount);
+    }
 
 }
