@@ -48,4 +48,3 @@ public class App extends Application {
         }, 0, 50 , TimeUnit.MILLISECONDS);
     }
 }
-

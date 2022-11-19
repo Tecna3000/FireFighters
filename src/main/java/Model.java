@@ -3,7 +3,6 @@ import java.util.List;
 public class Model {
 
     Grid grid;
-    Painter painter;
     double colCount;
     double rowCount;
 
@@ -11,9 +10,8 @@ public class Model {
     Elements fireFighters = new FireFighters(this) ;
     Elements fires = new Fires(this);
 
-    public Model(Grid grid, Painter painter) {
+    public Model(Grid grid) {
         this.grid = grid;
-        this.painter = painter;
         colCount = grid.colCount;
         rowCount = grid.rowCount;
     }
@@ -38,5 +36,4 @@ public class Model {
         if (position.col < colCount - 1) list.add(new Position(position.row, position.col + 1));
         return list;
     }
-
 }
