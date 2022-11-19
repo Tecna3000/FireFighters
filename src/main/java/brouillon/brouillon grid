@@ -10,7 +10,7 @@ public class Grid extends Canvas{
     double height;
     double colCount;
     double rowCount;
-    Model model;
+    Modelbis model;
 
 
     Image fireImage = new Image( new File("../firefighterstarter/src/main/images/flamme.png").toURI().toURL().toString());
@@ -23,12 +23,12 @@ public class Grid extends Canvas{
         this.rowCount = rowCount;
         setFocusTraversable(true);
         setOnMousePressed(this::mousePressed);
-        model = new Model(this);
+        model = new Modelbis(this);
         model.initialisation(3,8);
     }
 
     public void restart(MouseEvent mouseEvent){
-        model = new Model(this);
+        model = new Modelbis(this);
         model.initialisation(3,6);
         getGraphicsContext2D().clearRect(0,0,width, height);
         repaint();

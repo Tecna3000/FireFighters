@@ -12,10 +12,7 @@ public class Grid extends Canvas{
     double rowCount;
     Model model;
 
-
-    Image fireImage = new Image( new File("../firefighterstarter/src/main/images/flamme.png").toURI().toURL().toString());
-    Image ffImage = new Image( new File("../firefighterstarter/src/main/images/firefighter.png").toURI().toURL().toString());
-    Image elementImage = new Image( new File("").toURI().toURL().toString());
+     Painter painter;
     public Grid(int width, int height, int colCount, int rowCount) throws MalformedURLException {
         super(width,height);
         this.width = width;
@@ -24,12 +21,13 @@ public class Grid extends Canvas{
         this.rowCount = rowCount;
         setFocusTraversable(true);
         setOnMousePressed(this::mousePressed);
-        model = new Model(this);
+        this.painter =new Painter( width,  height,  colCount,  rowCount);
+        model = new Model(this,this.painter);
         model.initialisation(3,8);
     }
 
     public void restart(MouseEvent mouseEvent){
-        model = new Model(this);
+        model = new Model(this,this.painter);
         model.initialisation(3,6);
         getGraphicsContext2D().clearRect(0,0,width, height);
         repaint();
@@ -47,21 +45,5 @@ public class Grid extends Canvas{
 
     }
 
-    void paint(int row, int col){
-        getGraphicsContext2D().setFill(Color.WHITE);
-        getGraphicsContext2D().fillRect(row*height/rowCount,col*width/colCount,height/rowCount,width/colCount);
-    }
-
-    public void paintFF(int row, int col) {
-        getGraphicsContext2D().drawImage(ffImage,row*height/rowCount,col*width/colCount,height/rowCount,width/colCount);
-    }
-
-    public void paintFire(int row, int col) {
-        getGraphicsContext2D().drawImage(fireImage,row*height/rowCount,col*width/colCount,height/rowCount,width/colCount);
-    }
-
-    public void paintElement(int row, int col) {
-        getGraphicsContext2D().drawImage(elementImage,row*height/rowCount,col*width/colCount,height/rowCount,width/colCount);
-    }
 
 }

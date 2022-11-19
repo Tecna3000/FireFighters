@@ -1,21 +1,19 @@
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
-
 public class Model {
 
     Grid grid;
+    Painter painter;
     double colCount;
     double rowCount;
 
     int step = 0;
-    List<Elements> elements = new ArrayList<>();
     Elements fireFighters = new FireFighters(this) ;
     Elements fires = new Fires(this);
 
-    public Model(Grid grid) {
+    public Model(Grid grid, Painter painter) {
         this.grid = grid;
+        this.painter = painter;
         colCount = grid.colCount;
         rowCount = grid.rowCount;
     }
@@ -40,4 +38,5 @@ public class Model {
         if (position.col < colCount - 1) list.add(new Position(position.row, position.col + 1));
         return list;
     }
+
 }

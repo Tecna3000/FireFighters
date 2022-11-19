@@ -28,7 +28,7 @@ public class Fires extends Elements {
             }
             firesList.addAll(newFires);
             for (Position newFire : newFires)
-                model.grid.paintFire(newFire.row, newFire.col);
+                model.painter.paintFire(newFire.row, newFire.col);
 
         }
         model.step++;
