@@ -3,6 +3,7 @@ package Model;
 import Elements.Elements;
 import Elements.FireFighters;
 import Elements.Fires;
+import Elements.Clouds;
 import Elements.Position;
 import Painter.Painter;
 
@@ -20,6 +21,7 @@ public class Model {
     public int step = 0;
     Elements fireFighters = new FireFighters(this) ;
     Elements fires = new Fires(this);
+    Elements clouds = new Clouds(this);
 
     public Model(Grid grid) {
         this.grid = grid;
@@ -29,14 +31,16 @@ public class Model {
     }
 
 
-    public void initialisation(int fireNumber, int fireFighterNumber) {
+    public void initialisation(int fireNumber, int fireFighterNumber, int cloudNumber) {
         fires.initialisation(fireNumber);
         fireFighters.initialisation(fireFighterNumber);
+        clouds.initialisation(cloudNumber);
     }
 
     public void activation() {
         fireFighters.activation();
         fires.activation();
+        clouds.activation();
 
     }
 

@@ -39,7 +39,4 @@ public  final class Position {
                 "row=" + row + ", " +
                 "col=" + col + ']';
     }
-
-
-
 }

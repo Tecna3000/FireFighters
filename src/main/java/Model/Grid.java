@@ -24,13 +24,13 @@ public class Grid extends Canvas{
         setFocusTraversable(true);
         setOnMousePressed(this::mousePressed);
         model = new Model(this);
-        model.initialisation(3,8);
+        model.initialisation(3,8,8);
 
     }
 
     public void restart(MouseEvent mouseEvent){
         model = new Model(this);
-        model.initialisation(3,6);
+        model.initialisation(3,6,8);
         painter = new Painter(this);
         getGraphicsContext2D().clearRect(0,0,width, height);
         painter.repaint();
