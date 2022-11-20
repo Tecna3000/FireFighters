@@ -7,43 +7,40 @@ import java.io.File;
 import java.net.MalformedURLException;
 import java.util.*;
 
-public class FireFighters extends Elements{
-
-
-    List<Position> firefightersList = new ArrayList<>();
-    List<Position> ffNewPositions;
-    Image ffImage;
+public class FireTrucks extends Elements{
+    List<Position> firetrucksList = new ArrayList<>();
+    List<Position> ftNewPositions;
+    Image ftImage;
 
     {
         try {
-            ffImage = new Image( new File("../firefighterstarter/src/main/java/Painter/images/firefighter.png").toURI().toURL().toString());
+            ftImage = new Image( new File("../firefighterstarter/src/main/java/Painter/images/firetruck.png").toURI().toURL().toString());
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
         }
     }
-    public FireFighters(Model model) {
+    public FireTrucks(Model model) {
         super(model);
     }
 
     @Override
     public void initialisation(int number) {
         for (int index = 0; index < number; index++)
-            firefightersList.add(model.randomPosition());
+            firetrucksList.add(model.randomPosition());
 
     }
-
 
     @Override
     public void activation() {
 
-        ffNewPositions = new ArrayList<>();
-        for (Position ff : firefightersList) {
-            Position newPosition = move(ff);
-            model.painter.paint(ff.row, ff.col);
-            model.painter.paintElement(ffImage, newPosition.row, newPosition.col);
-            ffNewPositions.add(newPosition);
+        ftNewPositions = new ArrayList<>();
+        for (Position ft : firetrucksList) {
+            Position newPosition = move(ft);
+            model.painter.paint(ft.row, ft.col);
+            model.painter.paintElement(ftImage, newPosition.row, newPosition.col);
+            ftNewPositions.add(newPosition);
         }
-       firefightersList = ffNewPositions;
+        firetrucksList = ftNewPositions;
 
     }
 
@@ -51,7 +48,7 @@ public class FireFighters extends Elements{
         Fires.firesList.remove(position);
         model.painter.paint(position.row, position.col);
     }
-     Position move(Position position) {
+    Position move(Position position) {
         Position randomPosition = aStepTowardFire(position);
         List<Position> nextFires = model.next(randomPosition).stream().filter(Fires.firesList::contains).toList();
         extinguish(randomPosition);

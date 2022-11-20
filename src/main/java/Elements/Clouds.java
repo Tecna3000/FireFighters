@@ -11,7 +11,6 @@ import java.util.List;
 public class Clouds extends Elements {
     List<Position> cloudsList = new ArrayList<>();
     List<Position> cloudsNewPositions;
-
     Image cloudImage;
     {
         try {
@@ -26,7 +25,7 @@ public class Clouds extends Elements {
 
     @Override
     public void initialisation(int number) {
-        for (int index = 0; index < number; index++) cloudsList.add(randomPosition());
+        for (int index = 0; index < number; index++) cloudsList.add(model.randomPosition());
     }
 
     @Override
@@ -47,7 +46,7 @@ public class Clouds extends Elements {
     }
     @Override
     Position move(Position position) {
-        Position randomPosition = randomPosition();
+        Position randomPosition = model.randomPosition();
         List<Position> nextFires = model.next(randomPosition).stream().filter(Fires.firesList::contains).toList();
         extinguish(randomPosition);
         for (Position fire : nextFires)

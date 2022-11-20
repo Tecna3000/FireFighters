@@ -31,7 +31,7 @@ public class Fires extends Elements {
     @Override
     public void initialisation(int number) {
         for (int index = 0; index < number; index++){
-            firesList.add(randomPosition());
+            firesList.add(model.randomPosition());
         }
 
     }

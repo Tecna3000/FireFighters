@@ -12,9 +12,4 @@ public abstract class Elements {
     abstract Position move(Position position);
 
 
-    public Position randomPosition() {
-        return new Position((int) (Math.random() * model.rowCount), (int) (Math.random() * model.colCount));
-    }
-
-
 }
