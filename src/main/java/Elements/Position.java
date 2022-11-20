@@ -1,8 +1,10 @@
+package Elements;
+
 import java.util.Objects;
 
 public  final class Position {
-    final int row;
-    final int col;
+    public final int row;
+    public final int col;
 
     public Position(int row, int col) {
         this.row = row;
@@ -33,7 +35,7 @@ public  final class Position {
 
     @Override
     public String toString() {
-        return "Position[" +
+        return "Elements.Position[" +
                 "row=" + row + ", " +
                 "col=" + col + ']';
     }

@@ -1,18 +1,29 @@
+package Model;
+
+import Elements.Elements;
+import Elements.FireFighters;
+import Elements.Fires;
+import Elements.Position;
+import Painter.Painter;
+
+
 import java.util.ArrayList;
 import java.util.List;
 public class Model {
 
-    Grid grid;
+    public Grid grid;
+    public Painter painter;
 
-    double colCount;
-    double rowCount;
+    public double colCount;
+    public double rowCount;
 
-    int step = 0;
+    public int step = 0;
     Elements fireFighters = new FireFighters(this) ;
     Elements fires = new Fires(this);
 
     public Model(Grid grid) {
         this.grid = grid;
+        this.painter = new Painter(this.grid);
         colCount = grid.colCount;
         rowCount = grid.rowCount;
     }
@@ -29,7 +40,7 @@ public class Model {
 
     }
 
-    List<Position> next(Position position) {
+    public List<Position> next(Position position) {
         List<Position> list = new ArrayList<>();
         if (position.row > 0) list.add(new Position(position.row - 1, position.col));
         if (position.col > 0) list.add(new Position(position.row, position.col - 1));

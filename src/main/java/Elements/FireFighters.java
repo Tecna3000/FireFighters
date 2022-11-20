@@ -1,3 +1,6 @@
+package Elements;
+
+import Model.Model;
 import javafx.scene.image.Image;
 
 import java.io.File;
@@ -13,7 +16,7 @@ public class FireFighters extends Elements {
 
     {
         try {
-            ffImage = new Image( new File("../firefighterstarter/src/main/images/firefighter.png").toURI().toURL().toString());
+            ffImage = new Image( new File("../firefighterstarter/src/main/java/Painter/images/firefighter.png").toURI().toURL().toString());
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
         }
@@ -23,7 +26,7 @@ public class FireFighters extends Elements {
     }
 
     @Override
-    void initialisation(int number) {
+    public void initialisation(int number) {
         for (int index = 0; index < number; index++)
             firefightersList.add(randomPosition());
 
@@ -31,13 +34,13 @@ public class FireFighters extends Elements {
 
 
     @Override
-    void activation() {
+    public void activation() {
 
         ffNewPositions = new ArrayList<>();
         for (Position ff : firefightersList) {
             Position newPosition = move(ff);
-            model.grid.paint(ff.row, ff.col);
-            model.grid.paintElement(ffImage, newPosition.row, newPosition.col);
+            model.painter.paint(ff.row, ff.col);
+            model.painter.paintElement(ffImage, newPosition.row, newPosition.col);
             ffNewPositions.add(newPosition);
         }
        firefightersList = ffNewPositions;
@@ -46,7 +49,7 @@ public class FireFighters extends Elements {
 
     private void extinguish(Position position) {
         Fires.firesList.remove(position);
-        model.grid.paint(position.row, position.col);
+        model.painter.paint(position.row, position.col);
     }
      Position move(Position position) {
         Position randomPosition = aStepTowardFire(position);

@@ -1,3 +1,6 @@
+package Elements;
+
+import Model.Model;
 import javafx.scene.image.Image;
 
 import java.io.File;
@@ -14,7 +17,7 @@ public class Fires extends Elements {
 
     {
         try {
-            fireImage = new Image( new File("../firefighterstarter/src/main/images/flamme.png").toURI().toURL().toString());
+            fireImage = new Image( new File("../firefighterstarter/src/main/java/Painter/images/flamme.png").toURI().toURL().toString());
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
         }
@@ -26,7 +29,7 @@ public class Fires extends Elements {
     }
 
     @Override
-    void initialisation(int number) {
+    public void initialisation(int number) {
         for (int index = 0; index < number; index++){
             firesList.add(randomPosition());
         }
@@ -34,7 +37,7 @@ public class Fires extends Elements {
     }
 
     @Override
-    void activation() {
+    public void activation() {
         if (model.step % 2 == 0) {
             List<Position> newFires = new ArrayList<>();
             for (Position fire : firesList) {
@@ -42,7 +45,7 @@ public class Fires extends Elements {
             }
             firesList.addAll(newFires);
             for (Position newFire : newFires)
-                model.grid.paintElement(fireImage, newFire.row, newFire.col);
+                model.painter.paintElement(fireImage, newFire.row, newFire.col);
 
         }
         model.step++;

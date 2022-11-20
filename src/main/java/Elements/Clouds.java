@@ -1,17 +1,20 @@
+package Elements;
+
+import Model.Model;
 import javafx.scene.image.Image;
 
 import java.io.File;
 import java.net.MalformedURLException;
 import java.util.List;
 
-public class Clouds extends Elements{
+public class Clouds extends Elements {
 
     List<Position> cloudsNewPositions;
 
     Image cloudImage;
     {
         try {
-            cloudImage = new Image( new File("../firefighterstarter/src/main/images/rain.png").toURI().toURL().toString());
+            cloudImage = new Image( new File("../firefighterstarter/src/main/java/Painter/images/rain.png").toURI().toURL().toString());
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
         }
@@ -21,12 +24,12 @@ public class Clouds extends Elements{
     }
 
     @Override
-    void initialisation(int number) {
+    public void initialisation(int number) {
         for (int index = 0; index < number; index++) cloudsNewPositions.add(randomPosition());
     }
 
     @Override
-    void activation() {
+    public void activation() {
 
     }
 

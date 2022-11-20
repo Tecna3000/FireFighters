@@ -1,3 +1,5 @@
+import Model.Grid;
+import Painter.Painter;
 import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Scene;
@@ -25,6 +27,7 @@ public class App extends Application {
         VBox buttons = new VBox();
         HBox total = new HBox();
         Grid grid = new Grid(1000,1000,20,20);
+        Painter painter = new Painter(grid);
 
         root.getChildren().add(total);
         total.getChildren().add(buttons);
@@ -35,13 +38,13 @@ public class App extends Application {
         switchPause.setOnMouseClicked((value)->isInPause = !isInPause);
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
-        grid.repaint();
+        painter.repaint();
 
         ScheduledThreadPoolExecutor threadPoolExecutor = new ScheduledThreadPoolExecutor(1);
         threadPoolExecutor.scheduleAtFixedRate(() -> {
             if(!isInPause) {
                 grid.model.activation();
-                grid.repaint();
+                painter.repaint();
             }
         }, 0, 50 , TimeUnit.MILLISECONDS);
     }
