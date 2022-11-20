@@ -7,17 +7,13 @@ import java.net.MalformedURLException;
 
 import javafx.scene.image.Image;
 public class Grid extends Canvas{
-    double width;
-    double height;
-    double colCount;
-    double rowCount;
+    int width;
+    int height;
+    int colCount;
+    int rowCount;
     Model model;
 
-
-    Image fireImage = new Image( new File("../firefighterstarter/src/main/images/flamme.png").toURI().toURL().toString());
-    Image ffImage = new Image( new File("../firefighterstarter/src/main/images/firefighter.png").toURI().toURL().toString());
-    Image elementImage = new Image( new File("").toURI().toURL().toString());
-    public Grid(int width, int height, int colCount, int rowCount) throws MalformedURLException {
+    public Grid(int width, int height, int colCount, int rowCount)  {
         super(width,height);
         this.width = width;
         this.height = height;
@@ -53,16 +49,16 @@ public class Grid extends Canvas{
         getGraphicsContext2D().fillRect(row*height/rowCount,col*width/colCount,height/rowCount,width/colCount);
     }
 
-    public void paintFF(int row, int col) {
-        getGraphicsContext2D().drawImage(ffImage,row*height/rowCount,col*width/colCount,height/rowCount,width/colCount);
-    }
+//    public void paintFF(int row, int col) {
+//        getGraphicsContext2D().drawImage(ffImage,row*height/rowCount,col*width/colCount,height/rowCount,width/colCount);
+//    }
+//
+//    public void paintFire(int row, int col) {
+//        getGraphicsContext2D().drawImage(fireImage,row*height/rowCount,col*width/colCount,height/rowCount,width/colCount);
+//    }
 
-    public void paintFire(int row, int col) {
-        getGraphicsContext2D().drawImage(fireImage,row*height/rowCount,col*width/colCount,height/rowCount,width/colCount);
-    }
-
-    public void paintElement(int row, int col) {
-        getGraphicsContext2D().drawImage(elementImage,row*height/rowCount,col*width/colCount,height/rowCount,width/colCount);
+    public void paintElement(Image image,int row, int col) {
+        getGraphicsContext2D().drawImage(image,row*height/rowCount,col*width/colCount,height/rowCount,width/colCount);
     }
 
 }

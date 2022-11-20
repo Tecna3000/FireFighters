@@ -3,6 +3,7 @@ import java.util.List;
 public class Model {
 
     Grid grid;
+
     double colCount;
     double rowCount;
 

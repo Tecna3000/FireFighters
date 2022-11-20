@@ -1,16 +1,20 @@
-import javafx.scene.image.Image;
+package Painter;
+
 import javafx.scene.canvas.Canvas;
+import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
 
-public class Painter extends Canvas {
+public class GridPainter extends Canvas {
+    int width, height, colCount, rowCount;
+    Grid grid;
 
-    double width, height, colCount, rowCount;
+    public GridPainter(Gridbis grid)  {
 
-    public Painter(double width, double height, double colCount, double rowCount)  {
-        this.width = width;
-        this.height = height;
-        this.colCount = colCount;
-        this.rowCount = rowCount;
+        this.width = grid.width;
+        this.height = grid.height;
+        this.colCount = grid.colCount;
+        this.rowCount = grid.rowCount;
+
 
     }
     void repaint(){
@@ -29,6 +33,5 @@ public class Painter extends Canvas {
     public void paintElement(Image image, int row, int col) {
         getGraphicsContext2D().drawImage(image,row*height/rowCount,col*width/colCount,height/rowCount,width/colCount);
     }
-
 
 }

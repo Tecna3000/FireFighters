@@ -1,3 +1,7 @@
+import javafx.scene.image.Image;
+
+import java.io.File;
+import java.net.MalformedURLException;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -6,6 +10,16 @@ import java.util.Set;
 public class Fires extends Elements {
 
     static Set<Position> firesList = new HashSet<>();
+    Image fireImage;
+
+    {
+        try {
+            fireImage = new Image( new File("../firefighterstarter/src/main/images/flamme.png").toURI().toURL().toString());
+        } catch (MalformedURLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     public Fires(Model model) {
         super(model);
 
@@ -28,7 +42,7 @@ public class Fires extends Elements {
             }
             firesList.addAll(newFires);
             for (Position newFire : newFires)
-                model.grid.paintFire(newFire.row, newFire.col);
+                model.grid.paintElement(fireImage, newFire.row, newFire.col);
 
         }
         model.step++;

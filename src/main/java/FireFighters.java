@@ -1,3 +1,7 @@
+import javafx.scene.image.Image;
+
+import java.io.File;
+import java.net.MalformedURLException;
 import java.util.*;
 
 public class FireFighters extends Elements {
@@ -5,6 +9,15 @@ public class FireFighters extends Elements {
 
     List<Position> firefightersList = new ArrayList<>();
     List<Position> ffNewPositions;
+    Image ffImage;
+
+    {
+        try {
+            ffImage = new Image( new File("../firefighterstarter/src/main/images/firefighter.png").toURI().toURL().toString());
+        } catch (MalformedURLException e) {
+            throw new RuntimeException(e);
+        }
+    }
     public FireFighters(Model model) {
         super(model);
     }
@@ -24,8 +37,8 @@ public class FireFighters extends Elements {
         for (Position ff : firefightersList) {
             Position newPosition = move(ff);
             model.grid.paint(ff.row, ff.col);
-            model.grid.paintFF(newPosition.row, newPosition.col);
-         ffNewPositions.add(newPosition);
+            model.grid.paintElement(ffImage, newPosition.row, newPosition.col);
+            ffNewPositions.add(newPosition);
         }
        firefightersList = ffNewPositions;
 
