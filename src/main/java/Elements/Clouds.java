@@ -7,6 +7,7 @@ import java.io.File;
 import java.net.MalformedURLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class Clouds extends Elements {
     List<Position> cloudsList = new ArrayList<>();
@@ -21,6 +22,14 @@ public class Clouds extends Elements {
     }
     public Clouds(Model model) {
         super(model);
+    }
+
+    public Position randomStep(Position positon){
+        List<Position> positions = model.next(positon);
+        Random random = new Random();
+        int randomPosition = random.nextInt(positions.size());
+        return  positions.get(randomPosition);
+
     }
 
     @Override
@@ -46,7 +55,7 @@ public class Clouds extends Elements {
     }
     @Override
     Position move(Position position) {
-        Position randomPosition = model.randomPosition();
+        Position randomPosition = randomStep(position);
         List<Position> nextFires = model.next(randomPosition).stream().filter(Fires.firesList::contains).toList();
         extinguish(randomPosition);
         for (Position fire : nextFires)
