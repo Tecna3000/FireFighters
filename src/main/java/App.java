@@ -1,5 +1,5 @@
+import view.Painter;
 import Model.Grid;
-import Painter.Painter;
 import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Scene;

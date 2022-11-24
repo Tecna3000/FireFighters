@@ -6,7 +6,7 @@ import Elements.Fires;
 import Elements.Clouds;
 import Elements.Position;
 import Elements.FireTrucks;
-import Painter.Painter;
+import view.Painter;
 
 
 import java.util.ArrayList;

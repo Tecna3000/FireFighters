@@ -1,12 +1,9 @@
 package Model;
 
-import Model.Model;
-import Painter.Painter;
+import view.Painter;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.paint.Color;
 
-import javafx.scene.image.Image;
 public class Grid extends Canvas{
     int width;
     int height;

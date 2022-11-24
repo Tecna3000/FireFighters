@@ -1,4 +1,4 @@
-package Painter;
+package view;
 
 import Model.Grid;
 import javafx.scene.canvas.GraphicsContext;
