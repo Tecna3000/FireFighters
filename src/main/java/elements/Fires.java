@@ -1,7 +1,8 @@
-package Elements;
+package elements;
 
-import Model.Model;
+import model.Model;
 import javafx.scene.image.Image;
+import util.Position;
 
 import java.io.File;
 import java.net.MalformedURLException;
@@ -17,7 +18,7 @@ public class Fires extends Elements {
 
     {
         try {
-            fireImage = new Image( new File("../firefighterstarter/src/main/java/Painter/images/flamme.png").toURI().toURL().toString());
+            fireImage = new Image( new File("../firefighterstarter/src/main/java/view/images/flamme.png").toURI().toURL().toString());
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
         }

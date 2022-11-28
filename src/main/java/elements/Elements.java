@@ -1,6 +1,7 @@
-package Elements;
+package elements;
 
-import Model.Model;
+import model.Model;
+import util.Position;
 
 public abstract class Elements {
     Model model;

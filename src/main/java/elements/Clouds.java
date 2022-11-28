@@ -1,7 +1,8 @@
-package Elements;
+package elements;
 
-import Model.Model;
+import model.Model;
 import javafx.scene.image.Image;
+import util.Position;
 
 import java.io.File;
 import java.net.MalformedURLException;
@@ -15,7 +16,7 @@ public class Clouds extends Elements {
     Image cloudImage;
     {
         try {
-            cloudImage = new Image( new File("../firefighterstarter/src/main/java/Painter/images/rain.png").toURI().toURL().toString());
+            cloudImage = new Image( new File("../firefighterstarter/src/main/java/view/images/rain.png").toURI().toURL().toString());
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
         }

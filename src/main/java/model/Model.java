@@ -1,11 +1,11 @@
-package Model;
+package model;
 
-import Elements.Elements;
-import Elements.FireFighters;
-import Elements.Fires;
-import Elements.Clouds;
-import Elements.Position;
-import Elements.FireTrucks;
+import elements.Elements;
+import elements.FireFighters;
+import elements.Fires;
+import elements.Clouds;
+import util.Position;
+import elements.FireTrucks;
 import view.Painter;
 
 

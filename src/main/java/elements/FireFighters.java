@@ -1,46 +1,50 @@
-package Elements;
+package elements;
 
-import Model.Model;
+import model.Model;
 import javafx.scene.image.Image;
+import util.Position;
 
 import java.io.File;
 import java.net.MalformedURLException;
 import java.util.*;
 
-public class FireTrucks extends Elements{
-    List<Position> firetrucksList = new ArrayList<>();
-    List<Position> ftNewPositions;
-    Image ftImage;
+public class FireFighters extends Elements{
+
+
+    List<Position> firefightersList = new ArrayList<>();
+    List<Position> ffNewPositions;
+    Image ffImage;
 
     {
         try {
-            ftImage = new Image( new File("../firefighterstarter/src/main/java/Painter/images/firetruck.png").toURI().toURL().toString());
+            ffImage = new Image( new File("../firefighterstarter/src/main/java/view/images/firefighter.png").toURI().toURL().toString());
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
         }
     }
-    public FireTrucks(Model model) {
+    public FireFighters(Model model) {
         super(model);
     }
 
     @Override
     public void initialisation(int number) {
         for (int index = 0; index < number; index++)
-            firetrucksList.add(model.randomPosition());
+            firefightersList.add(model.randomPosition());
 
     }
+
 
     @Override
     public void activation() {
 
-        ftNewPositions = new ArrayList<>();
-        for (Position ft : firetrucksList) {
-            Position newPosition = move(ft);
-            model.painter.paint(ft.row, ft.col);
-            model.painter.paintElement(ftImage, newPosition.row, newPosition.col);
-            ftNewPositions.add(newPosition);
+        ffNewPositions = new ArrayList<>();
+        for (Position ff : firefightersList) {
+            Position newPosition = move(ff);
+            model.painter.paint(ff.row, ff.col);
+            model.painter.paintElement(ffImage, newPosition.row, newPosition.col);
+            ffNewPositions.add(newPosition);
         }
-        firetrucksList = ftNewPositions;
+       firefightersList = ffNewPositions;
 
     }
 
@@ -48,7 +52,7 @@ public class FireTrucks extends Elements{
         Fires.firesList.remove(position);
         model.painter.paint(position.row, position.col);
     }
-    Position move(Position position) {
+     Position move(Position position) {
         Position randomPosition = aStepTowardFire(position);
         List<Position> nextFires = model.next(randomPosition).stream().filter(Fires.firesList::contains).toList();
         extinguish(randomPosition);

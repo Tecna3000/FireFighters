@@ -1,6 +1,6 @@
 package view;
 
-import Model.Grid;
+import model.Grid;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
