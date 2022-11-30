@@ -57,7 +57,7 @@ public class Model {
         return list;
     }
 
-    public List<Position> nextFighter(Position position) {
+    public List<Position> nextSkipMountain(Position position) {
         List<Position> list = next(position);
         for(Position mountain : mountains.getMountainsPositions())
             list.remove(mountain);

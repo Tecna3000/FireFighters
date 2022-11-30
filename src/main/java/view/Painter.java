@@ -17,7 +17,6 @@ public class Painter  {
         this.height = grid.getHeight();
         this.colCount = grid.colCount;
         this.rowCount = grid.rowCount;
-
     }
     public void repaint(){
         for(int col=0; col<colCount; col++)
@@ -34,7 +33,6 @@ public class Painter  {
 
     public void paintElement(Image image, int row, int col) {
         context.drawImage(image,row*height/rowCount,col*width/colCount,height/rowCount,width/colCount);
-
     }
 
 
