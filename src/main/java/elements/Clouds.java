@@ -51,13 +51,13 @@ public class Clouds extends Elements {
 
     }
     private void extinguish(Position position) {
-        Fires.firesList.remove(position);
+        Fires.firesSet.remove(position);
         model.painter.paint(position.row, position.col);
     }
     @Override
     Position move(Position position) {
         Position randomPosition = randomStep(position);
-        List<Position> nextFires = model.next(randomPosition).stream().filter(Fires.firesList::contains).toList();
+        List<Position> nextFires = model.next(randomPosition).stream().filter(Fires.firesSet::contains).toList();
         extinguish(randomPosition);
         for (Position fire : nextFires)
             extinguish(fire);

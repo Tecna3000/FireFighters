@@ -35,6 +35,9 @@ public class Mountains extends Elements{
         for(Position mountain : mountainsList)
             model.painter.paintElement(mountainImage,mountain.row(),mountain.col());
     }
+    public List<Position> getMountainsPositions() {
+        return mountainsList;
+    }
 
 
 

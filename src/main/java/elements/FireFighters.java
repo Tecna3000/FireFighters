@@ -49,12 +49,12 @@ public class FireFighters extends Elements{
     }
 
     private void extinguish(Position position) {
-        Fires.firesList.remove(position);
+        Fires.firesSet.remove(position);
         model.painter.paint(position.row, position.col);
     }
      Position move(Position position) {
         Position randomPosition = aStepTowardFire(position);
-        List<Position> nextFires = model.next(randomPosition).stream().filter(Fires.firesList::contains).toList();
+        List<Position> nextFires = model.next(randomPosition).stream().filter(Fires.firesSet::contains).toList();
         extinguish(randomPosition);
         for (Position fire : nextFires)
             extinguish(fire);
@@ -65,14 +65,14 @@ public class FireFighters extends Elements{
         Queue<Position> toVisit = new LinkedList<>();
         Set<Position> seen = new HashSet<>();
         HashMap<Position, Position> firstMove = new HashMap<>();
-        toVisit.addAll(model.next(position));
+        toVisit.addAll(model.nextFighter(position));
         for (Position initialMove : toVisit)
             firstMove.put(initialMove, initialMove);
         while (!toVisit.isEmpty()) {
             Position current = toVisit.poll();
-            if (Fires.firesList.contains(current))
+            if (Fires.firesSet.contains(current))
                 return firstMove.get(current);
-            for (Position adjacent : model.next(current)) {
+            for (Position adjacent : model.nextFighter(current)) {
                 if (seen.contains(adjacent)) continue;
                 toVisit.add(adjacent);
                 seen.add(adjacent);

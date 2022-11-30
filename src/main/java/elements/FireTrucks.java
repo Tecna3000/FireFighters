@@ -46,12 +46,12 @@ public class FireTrucks extends Elements{
     }
 
     private void extinguish(Position position) {
-        Fires.firesList.remove(position);
+        Fires.firesSet.remove(position);
         model.painter.paint(position.row, position.col);
     }
     Position move(Position position) {
         Position randomPosition = twoStepsTowardFire(position);
-        List<Position> nextFires = model.next(randomPosition).stream().filter(Fires.firesList::contains).toList();
+        List<Position> nextFires = model.next(randomPosition).stream().filter(Fires.firesSet::contains).toList();
         extinguish(randomPosition);
         for (Position fire : nextFires)
             extinguish(fire);
@@ -70,7 +70,7 @@ public class FireTrucks extends Elements{
             firstMove.put(initialMove, initialMove);
         while (!toVisit.isEmpty()) {
             Position current = toVisit.poll();
-            if (Fires.firesList.contains(current))
+            if (Fires.firesSet.contains(current))
                 return firstMove.get(current);
             for (Position adjacent : model.next(current)) {
                 if (seen.contains(adjacent)) continue;

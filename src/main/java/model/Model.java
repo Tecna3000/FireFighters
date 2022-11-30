@@ -1,11 +1,7 @@
 package model;
 
-import elements.Elements;
-import elements.FireFighters;
-import elements.Fires;
-import elements.Clouds;
+import elements.*;
 import util.Position;
-import elements.FireTrucks;
 import view.Painter;
 
 
@@ -24,6 +20,7 @@ public class Model {
     Elements fires = new Fires(this);
     Elements clouds = new Clouds(this);
     Elements fireTrucks = new FireTrucks(this);
+    Mountains mountains= new Mountains(this);
 
 
     public Model(Grid grid) {
@@ -34,11 +31,12 @@ public class Model {
     }
 
 
-    public void initialisation(int fireNumber, int fireFighterNumber, int cloudNumber, int fireTrucksNumber) {
+    public void initialisation(int fireNumber, int fireFighterNumber, int cloudNumber, int fireTrucksNumber,int mountainsNumber) {
         fires.initialisation(fireNumber);
         fireFighters.initialisation(fireFighterNumber);
         clouds.initialisation(cloudNumber);
         fireTrucks.initialisation(fireTrucksNumber);
+        mountains.initialisation(mountainsNumber);
     }
 
     public void activation() {
@@ -46,6 +44,7 @@ public class Model {
         fires.activation();
         clouds.activation();
         fireTrucks.activation();
+        mountains.activation();
 
     }
 
@@ -55,6 +54,13 @@ public class Model {
         if (position.col > 0) list.add(new Position(position.row, position.col - 1));
         if (position.row < rowCount - 1) list.add(new Position(position.row + 1, position.col));
         if (position.col < colCount - 1) list.add(new Position(position.row, position.col + 1));
+        return list;
+    }
+
+    public List<Position> nextFighter(Position position) {
+        List<Position> list = next(position);
+        for(Position mountain : mountains.getMountainsPositions())
+            list.remove(mountain);
         return list;
     }
 
