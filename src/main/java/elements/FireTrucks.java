@@ -72,7 +72,7 @@ public class FireTrucks extends Elements{
             Position current = toVisit.poll();
             if (Fires.firesSet.contains(current))
                 return firstMove.get(current);
-            for (Position adjacent : model.next(current)) {
+            for (Position adjacent : model.nextFighter(current)) {
                 if (seen.contains(adjacent)) continue;
                 toVisit.add(adjacent);
                 seen.add(adjacent);

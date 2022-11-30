@@ -1,14 +1,21 @@
 package elements;
 
 import model.Model;
+import util.Initializer;
 import util.Position;
 
-public abstract class FireExtinguisher {
+public  class FireExtinguisher implements Initializer {
     Model model;
+    controller.Grid grid;
     public FireExtinguisher(Model model){
         this.model = model;
     }
-    abstract void extinguish(Position position);
-    abstract Position move();
-    abstract Position aStepTowardFire(Position position);
+    @Override
+    public void initialisation(int number) {
+
+    }
+    @Override
+    public void activation() {
+
+    }
 }
