@@ -31,6 +31,7 @@ public class Model {
     }
 
 
+
     public void initialisation(int fireNumber, int fireFighterNumber, int cloudNumber, int fireTrucksNumber,int mountainsNumber) {
         fires.initialisation(fireNumber);
         fireFighters.initialisation(fireFighterNumber);

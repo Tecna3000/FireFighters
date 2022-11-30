@@ -41,4 +41,9 @@ public class Road extends Elements{
     Position move(Position position) {
         return null;
     }
+
+    public List<Position> getRoadPositions() {
+        return roadPositions;
+    }
+
 }

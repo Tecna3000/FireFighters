@@ -58,4 +58,9 @@ public class Fires extends Elements {
         return null;
     }
 
+    public Set<Position> getFiresPositions() {
+        return firesSet;
+    }
+
+
 }
