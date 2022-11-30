@@ -1,9 +1,9 @@
 package elements;
 
+import elements.Fires;
 import model.Model;
 import javafx.scene.image.Image;
 import util.Position;
-import view.GridPainter;
 
 import java.io.File;
 import java.net.MalformedURLException;
@@ -12,9 +12,8 @@ import java.util.*;
 public class FireTrucks extends Elements{
     List<Position> firetrucksList = new ArrayList<>();
     List<Position> ftNewPositions;
-
-    GridPainter painter = new GridPainter(model.grid);
     Image ftImage;
+
     {
         try {
             ftImage = new Image( new File("../firefighterstarter/src/main/java/view/images/firetruck.png").toURI().toURL().toString());
@@ -40,7 +39,7 @@ public class FireTrucks extends Elements{
         for (Position ft : firetrucksList) {
             Position newPosition = move(ft);
             model.painter.paint(ft.row, ft.col);
-            painter.paint(newPosition.row, newPosition.col);
+            model.painter.paintElement(ftImage, newPosition.row, newPosition.col);
             ftNewPositions.add(newPosition);
         }
         firetrucksList = ftNewPositions;
@@ -74,7 +73,7 @@ public class FireTrucks extends Elements{
             Position current = toVisit.poll();
             if (Fires.firesSet.contains(current))
                 return firstMove.get(current);
-            for (Position adjacent : model.nextSkipMountain(current)) {
+            for (Position adjacent : model.next(current)) {
                 if (seen.contains(adjacent)) continue;
                 toVisit.add(adjacent);
                 seen.add(adjacent);
@@ -82,5 +81,6 @@ public class FireTrucks extends Elements{
             }
         }
         return position;
+
     }
 }

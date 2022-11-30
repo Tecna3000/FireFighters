@@ -17,10 +17,11 @@ public class Painter  {
         this.height = grid.getHeight();
         this.colCount = grid.colCount;
         this.rowCount = grid.rowCount;
+
     }
     public void repaint(){
         for(int col=0; col<colCount; col++)
-           context.strokeLine(0, col*width/colCount, height, col*width/colCount);
+            context.strokeLine(0, col*width/colCount, height, col*width/colCount);
         for(int row=0; row<rowCount;row++)
             context.strokeLine(row*height/rowCount,0,row*height/rowCount, width);
 
@@ -33,7 +34,6 @@ public class Painter  {
 
     public void paintElement(Image image, int row, int col) {
         context.drawImage(image,row*height/rowCount,col*width/colCount,height/rowCount,width/colCount);
+
     }
-
-
 }
