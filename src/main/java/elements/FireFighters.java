@@ -44,7 +44,7 @@ public class FireFighters extends Elements{
             model.painter.paintElement(ffImage, newPosition.row, newPosition.col);
             ffNewPositions.add(newPosition);
         }
-       firefightersList = ffNewPositions;
+        firefightersList = ffNewPositions;
 
     }
 
@@ -52,7 +52,7 @@ public class FireFighters extends Elements{
         Fires.firesSet.remove(position);
         model.painter.paint(position.row, position.col);
     }
-     Position move(Position position) {
+    Position move(Position position) {
         Position randomPosition = aStepTowardFire(position);
         List<Position> nextFires = model.next(randomPosition).stream().filter(Fires.firesSet::contains).toList();
         extinguish(randomPosition);

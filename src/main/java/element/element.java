@@ -1,6 +1,6 @@
-package util;
+package element;
 
-public interface Initializer {
+public interface element {
      void initialisation(int number);
      void activation();
 }

@@ -1,9 +1,5 @@
-package brouillon;
+package element;
 
-import controller.Grid;
-import controller.Model;
-import javafx.scene.image.Image;
-import util.Initializer;
 import util.Position;
 
 import java.util.ArrayList;
@@ -11,13 +7,16 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class Fires implements Initializer {
+public class Fires implements element {
 
-    Grid grid;
-    Model model;
-    Set<Position> firesSet = new HashSet<>();
+    controller.Grid grid;
+    controller.Model model;
+    public Set<Position> firesSet = new HashSet<>();
 
-    public Fires(Grid grid, Model model) {
+    int step = 0;
+
+
+    public Fires(controller.Grid grid, controller.Model model) {
         this.grid =  grid;
         this.model = model;
     }
@@ -31,17 +30,19 @@ public class Fires implements Initializer {
 
     @Override
     public void activation() {
-        if (model.step % 2 == 0) {
+        if (step % 2 == 0) {
             List<Position> newFires = new ArrayList<>();
             for (Position fire : firesSet) {
                 newFires.addAll(model.next(fire));
             }
             firesSet.addAll(newFires);
             for (Position newFire : newFires)
-                model.painter.paintFire(newFire.row, newFire.col);
+                model.painter.paintFire( newFire.row, newFire.col);
 
         }
-        model.step++;
-
+        step++;
+    }
+    public Set<Position> getFiresPositions() {
+        return firesSet;
     }
 }

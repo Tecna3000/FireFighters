@@ -13,21 +13,19 @@ public class Grid extends Canvas{
     public Painter painter;
     public Grid(int width, int height, int colCount, int rowCount)  {
         super(width,height);
-        this.width = width;
-        this.height = height;
-        this.colCount = colCount;
-        this.rowCount = rowCount;
+        this.width = width;this.height = height;
+        this.colCount = colCount;this.rowCount = rowCount;
         painter = new Painter(this);
         setFocusTraversable(true);
         setOnMousePressed(this::mousePressed);
         model = new Model(this);
-        model.initialisation(3,8,2,2,3);
+        model.initialisation(3,8,2,3,3,3);
 
     }
 
     public void restart(MouseEvent mouseEvent){
         model = new Model(this);
-        model.initialisation(3,6,2,2,3);
+        model.initialisation(3,6,2,3,3,3);
         painter = new Painter(this);
         getGraphicsContext2D().clearRect(0,0,width, height);
         painter.repaint();

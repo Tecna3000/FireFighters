@@ -1,37 +1,46 @@
-package model;
+package controller;
 
-import elements.*;
 import util.Position;
-import view.Painter;
+import view.GridPainter;
 
 
 import java.util.ArrayList;
 import java.util.List;
-public class Model {
 
-    public Grid grid;
-    public Painter painter;
+public class Model {
+    public controller.Grid grid;
+    public GridPainter painter;
 
     public double colCount;
     public double rowCount;
 
-    FireFighters fireFighters = new FireFighters(this) ;
-    Fires fires = new Fires(this);
-    Clouds clouds = new Clouds(this);
-    FireTrucks fireTrucks = new FireTrucks(this);
-    Mountains mountains= new Mountains(this);
-    Road road = new Road(this);
+    public element.Fires fires;
+    element.FireFighters fireFighters ;
+    element.FireTrucks fireTrucks ;
+
+    element.Clouds clouds;
+
+    public element.Mountains mountains;
+    element.Road road;
 
 
-    public Model(Grid grid) {
+    public Model(controller.Grid grid) {
         this.grid = grid;
-        this.painter = new Painter(this.grid);
+        this.painter = new GridPainter(grid);
         colCount = grid.colCount;
         rowCount = grid.rowCount;
+        fireFighters = new element.FireFighters(grid, this);
+        fires = new element.Fires(grid, this);
+        clouds = new element.Clouds(grid, this);
+        fireTrucks = new element.FireTrucks(grid, this);
+        mountains = new element.Mountains(grid, this);
+        road = new element.Road(grid, this);
+
+
     }
 
 
-    public void initialisation(int fireNumber, int fireFighterNumber, int cloudNumber, int fireTrucksNumber,int mountainsNumber,int roadNumber) {
+    public void initialisation(int fireNumber, int fireFighterNumber, int cloudNumber, int fireTrucksNumber,int mountainsNumber, int roadNumber) {
         fires.initialisation(fireNumber);
         fireFighters.initialisation(fireFighterNumber);
         clouds.initialisation(cloudNumber);
@@ -41,8 +50,8 @@ public class Model {
     }
 
     public void activation() {
-        fireFighters.activation();
         fires.activation();
+        fireFighters.activation();
         clouds.activation();
         fireTrucks.activation();
         mountains.activation();
@@ -65,6 +74,11 @@ public class Model {
             list.remove(mountain);
         return list;
     }
+    public void extinguish(Position position) {
+        fires.getFiresPositions().remove(position);
+        painter.paint(position.row, position.col);
+    }
+
 
 
     public Position randomPosition() {

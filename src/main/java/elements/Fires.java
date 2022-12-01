@@ -13,7 +13,8 @@ import java.util.Set;
 
 public class Fires extends Elements {
 
-    static Set<Position> firesSet = new HashSet<>();
+    public static Set<Position> firesSet = new HashSet<>();
+    int step = 0;
     Image fireImage;
 
     {
@@ -39,7 +40,7 @@ public class Fires extends Elements {
 
     @Override
     public void activation() {
-        if (model.step % 2 == 0) {
+        if (step % 2 == 0) {
             List<Position> newFires = new ArrayList<>();
             for (Position fire : firesSet) {
                 newFires.addAll(model.next(fire));
@@ -49,7 +50,8 @@ public class Fires extends Elements {
                 model.painter.paintElement(fireImage, newFire.row, newFire.col);
 
         }
-        model.step++;
+        step++;
+
 
     }
 
@@ -61,6 +63,5 @@ public class Fires extends Elements {
     public Set<Position> getFiresPositions() {
         return firesSet;
     }
-
 
 }

@@ -19,7 +19,7 @@ public class GridPainter implements Paint{
 
     {
         try {
-            ffImage = new Image( new File("../images/firefighter.png").toURI().toURL().toString());
+            ffImage = new Image( new File("../firefighterstarter/src/main/java/view/images/firefighter.png").toURI().toURL().toString());
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
         }
@@ -29,7 +29,7 @@ public class GridPainter implements Paint{
 
     {
         try {
-            fireImage = new Image( new File("../images/flamme.png").toURI().toURL().toString());
+            fireImage = new Image( new File("../firefighterstarter/src/main/java/view/images/flamme.png").toURI().toURL().toString());
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
         }
@@ -39,7 +39,7 @@ public class GridPainter implements Paint{
 
     {
         try {
-            ftImage = new Image( new File("../images/firetruck.png").toURI().toURL().toString());
+            ftImage = new Image( new File("../firefighterstarter/src/main/java/view/images/firetruck.png").toURI().toURL().toString());
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
         }
@@ -49,7 +49,7 @@ public class GridPainter implements Paint{
 
     {
         try {
-            cloudImage = new Image( new File("../images/rain.png").toURI().toURL().toString());
+            cloudImage = new Image( new File("../firefighterstarter/src/main/java/view/images/rain.png").toURI().toURL().toString());
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
         }
@@ -59,7 +59,7 @@ public class GridPainter implements Paint{
 
     {
         try {
-            mountainImage = new Image( new File("../images/mountain.png").toURI().toURL().toString());
+            mountainImage = new Image( new File("../firefighterstarter/src/main/java/view/images/mountain.png").toURI().toURL().toString());
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
         }
@@ -70,7 +70,7 @@ public class GridPainter implements Paint{
 
     {
         try {
-            roadImage = new Image( new File("../images/road.png").toURI().toURL().toString());
+            roadImage = new Image( new File("../firefighterstarter/src/main/java/view/images/road.png").toURI().toURL().toString());
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
         }
@@ -80,7 +80,7 @@ public class GridPainter implements Paint{
 
     {
         try {
-            rockImage = new Image( new File("../images/rocks.png").toURI().toURL().toString());
+            rockImage = new Image( new File("../firefighterstarter/src/main/java/view/images/rocks.png").toURI().toURL().toString());
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
         }
@@ -110,6 +110,7 @@ public class GridPainter implements Paint{
     }
 
     public void paintFire(int row, int col) {
+
         context.drawImage(fireImage,row*height/rowCount,col*width/colCount,height/rowCount,width/colCount);
     }
     public void paintFF(int row, int col) {

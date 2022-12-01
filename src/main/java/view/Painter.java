@@ -19,6 +19,10 @@ public class Painter  {
         this.rowCount = grid.rowCount;
 
     }
+
+    public Painter(controller.Grid grid) {
+    }
+
     public void repaint(){
         for(int col=0; col<colCount; col++)
             context.strokeLine(0, col*width/colCount, height, col*width/colCount);
