@@ -1,6 +1,5 @@
-import model.Grid;
+
 import view.GridPainter;
-import view.Painter;
 import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Scene;

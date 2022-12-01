@@ -21,7 +21,7 @@ public class Model {
     element.Clouds clouds;
 
     public element.Mountains mountains;
-    element.Road road;
+    public element.Road road;
 
 
     public Model(controller.Grid grid) {

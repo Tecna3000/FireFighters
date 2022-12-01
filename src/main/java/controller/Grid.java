@@ -2,10 +2,9 @@ package controller;
 
 import javafx.scene.canvas.Canvas;
 import javafx.scene.input.MouseEvent;
-import model.Model;
 
 import view.GridPainter;
-import view.Painter;
+
 
 public class Grid extends Canvas implements Controller {
     int width, height;

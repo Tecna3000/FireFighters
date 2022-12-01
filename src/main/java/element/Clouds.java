@@ -1,6 +1,5 @@
 package element;
 
-import elements.Fires;
 
 import util.Position;
 import java.util.ArrayList;
@@ -45,7 +44,7 @@ public class Clouds extends FireExtinguisher implements FightFire{
     @Override
     public Position fightFire(Position position) {
         Position randomPosition = randomStep(position);
-        List<Position> nextFires = model.next(randomPosition).stream().filter(Fires.firesSet::contains).toList();
+        List<Position> nextFires = model.next(randomPosition).stream().filter(model.fires.getFiresPositions()::contains).toList();
         model.extinguish(randomPosition);
         for (Position fire : nextFires)
             model.extinguish(fire);

@@ -35,10 +35,18 @@ public class Fires implements element {
             for (Position fire : firesSet) {
                 newFires.addAll(model.next(fire));
             }
-            firesSet.addAll(newFires);
-            for (Position newFire : newFires)
-                model.painter.paintFire( newFire.row, newFire.col);
+            List<Position> occupied = new ArrayList<>();
 
+            for (Position newFire : newFires){
+                if (model.road.getRoadPositions().contains(newFire) || model.mountains.getMountainsPositions().contains(newFire)) {
+                    occupied.add(newFire);
+                }
+            }
+            firesSet.removeAll(occupied);
+            for (Position newFire : newFires){
+                model.painter.paintFire( newFire.row, newFire.col);
+                }
+            firesSet.addAll(newFires);
         }
         step++;
     }
