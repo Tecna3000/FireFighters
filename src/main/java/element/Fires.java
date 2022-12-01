@@ -45,11 +45,12 @@ public class Fires implements element {
             firesSet.removeAll(occupied);
             for (Position newFire : newFires){
                 model.painter.paintFire( newFire.row, newFire.col);
-                }
+            }
             firesSet.addAll(newFires);
         }
         step++;
     }
+
     public Set<Position> getFiresPositions() {
         return firesSet;
     }
