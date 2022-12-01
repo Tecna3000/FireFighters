@@ -12,7 +12,7 @@ public class Road implements element {
     Grid grid;
     Model model;
     List<Position> roadPositions = new ArrayList<>();
-    public Road(Grid grid, controller.Model model) {
+    public Road(Grid grid, Model model) {
         this.grid = grid;
         this.model = model;
 

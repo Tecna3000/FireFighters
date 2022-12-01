@@ -21,13 +21,13 @@ public class Grid extends Canvas implements Controller {
         setFocusTraversable(true);
         setOnMousePressed(this::mousePressed);
         model = new controller.Model(this);
-        model.initialisation(3,8,3,3,3,4);
+        model.initialisation(3,8,3,3,3,4,5);
     }
 
     @Override
     public void restart(MouseEvent mouseEvent) {
         model = new controller.Model(this);
-        model.initialisation(3,6,3,3,3,4);
+        model.initialisation(3,6,3,3,3,4,5);
         painter = new GridPainter(this);
         getGraphicsContext2D().clearRect(0,0,width, height);
         painter.repaint();

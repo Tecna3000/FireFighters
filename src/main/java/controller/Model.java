@@ -1,5 +1,6 @@
 package controller;
 
+import element.Rocks;
 import util.Position;
 import view.GridPainter;
 
@@ -22,6 +23,7 @@ public class Model {
 
     public element.Mountains mountains;
     public element.Road road;
+    Rocks rock;
 
 
     public Model(controller.Grid grid) {
@@ -35,18 +37,19 @@ public class Model {
         fireTrucks = new element.FireTrucks(grid, this);
         mountains = new element.Mountains(grid, this);
         road = new element.Road(grid, this);
-
+        rock = new Rocks(grid, this);
 
     }
 
 
-    public void initialisation(int fireNumber, int fireFighterNumber, int cloudNumber, int fireTrucksNumber,int mountainsNumber, int roadNumber) {
+    public void initialisation(int fireNumber, int fireFighterNumber, int cloudNumber, int fireTrucksNumber,int mountainsNumber, int roadNumber, int rockNumber) {
         fireFighters.initialisation(fireFighterNumber);
         clouds.initialisation(cloudNumber);
         fireTrucks.initialisation(fireTrucksNumber);
         fires.initialisation(fireNumber);
         mountains.initialisation(mountainsNumber);
         road.initialisation(roadNumber);
+        rock.initialisation(rockNumber);
     }
 
     public void activation() {
@@ -56,6 +59,8 @@ public class Model {
         mountains.activation();
         fires.activation();
         road.activation();
+        rock.activation();
+
 
     }
 
