@@ -28,8 +28,8 @@ public class App extends Application {
         Button switchPause = new Button("Pause");
         VBox buttons = new VBox();
         HBox total = new HBox();
-        Grid grid = new Grid(1000,1000,20,20);
-        Painter painter = new Painter(grid);
+        controller.Grid grid = new controller.Grid(1000,1000,20,20);
+        GridPainter painter = new GridPainter(grid);
 
         root.getChildren().add(total);
         total.getChildren().add(buttons);

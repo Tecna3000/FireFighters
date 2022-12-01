@@ -41,20 +41,20 @@ public class Model {
 
 
     public void initialisation(int fireNumber, int fireFighterNumber, int cloudNumber, int fireTrucksNumber,int mountainsNumber, int roadNumber) {
-        fires.initialisation(fireNumber);
         fireFighters.initialisation(fireFighterNumber);
         clouds.initialisation(cloudNumber);
         fireTrucks.initialisation(fireTrucksNumber);
+        fires.initialisation(fireNumber);
         mountains.initialisation(mountainsNumber);
         road.initialisation(roadNumber);
     }
 
     public void activation() {
-        fires.activation();
         fireFighters.activation();
         clouds.activation();
         fireTrucks.activation();
         mountains.activation();
+        fires.activation();
         road.activation();
 
     }

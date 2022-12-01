@@ -42,12 +42,11 @@ public class Model {
 
     public void activation() {
         fireFighters.activation();
-        fires.activation();
         clouds.activation();
         fireTrucks.activation();
         mountains.activation();
         road.activation();
-
+        fires.activation();
     }
 
     public List<Position> next(Position position) {
