@@ -35,14 +35,14 @@ public class FireFighters extends FireExtinguisher implements FightFire  {
         Queue<Position> toVisit = new LinkedList<>();
         Set<Position> seen = new HashSet<>();
         HashMap<Position, Position> firstMove = new HashMap<>();
-        toVisit.addAll(model.next(position));
+        toVisit.addAll(model.nextSkipMountain(position));
         for (Position initialMove : toVisit)
             firstMove.put(initialMove, initialMove);
         while (!toVisit.isEmpty()) {
             Position current = toVisit.poll();
             if (model.fires.getFiresPositions().contains(current))
                 return firstMove.get(current);
-            for (Position adjacent : model.next(current)) {
+            for (Position adjacent : model.nextSkipMountain(current)) {
                 if (seen.contains(adjacent)) continue;
                 toVisit.add(adjacent);
                 seen.add(adjacent);
