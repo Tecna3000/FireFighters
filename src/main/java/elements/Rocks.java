@@ -1,4 +1,4 @@
-package element;
+package elements;
 
 import controller.Grid;
 import controller.Model;
@@ -10,7 +10,7 @@ import java.util.List;
 public class Rocks implements elements {
     Grid grid;
     Model model;
-    List<Position> rockPositions = new ArrayList<>();
+    private List<Position> rockPositions = new ArrayList<>();
     public Rocks(Grid grid, controller.Model model) {
         this.grid = grid;
         this.model = model;

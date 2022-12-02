@@ -1,4 +1,4 @@
-package element;
+package elements;
 
 import controller.Grid;
 import controller.Model;
@@ -11,7 +11,7 @@ public class Road implements elements {
 
     Grid grid;
     Model model;
-    List<Position> roadPositions = new ArrayList<>();
+    private List<Position> roadPositions = new ArrayList<>();
     public Road(Grid grid, Model model) {
         this.grid = grid;
         this.model = model;

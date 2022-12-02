@@ -1,4 +1,4 @@
-package element;
+package elements;
 
 
 import util.Position;
@@ -7,8 +7,8 @@ import java.util.List;
 import java.util.Random;
 
 public class Clouds extends FireExtinguisher implements FightFire{
-    List<Position> cloudsList = new ArrayList<>();
-    List<Position> cloudsNewPositions;
+    private List<Position> cloudsList = new ArrayList<>();
+    private List<Position> cloudsNewPositions;
 
     public Clouds(controller.Grid grid,controller.Model model) {
         super(grid,model);

@@ -1,11 +1,11 @@
-package element;
+package elements;
 
 import util.Position;
 import java.util.*;
 
 public class FireFighters extends FireExtinguisher implements FightFire  {
-    List<Position> firefightersList = new ArrayList<>();
-    List<Position> ffNewPositions;
+    private List<Position> firefightersList = new ArrayList<>();
+    private List<Position> ffNewPositions;
 
     public FireFighters(controller.Grid grid,controller.Model model) {
         super(grid,model);
@@ -18,7 +18,6 @@ public class FireFighters extends FireExtinguisher implements FightFire  {
 
     }
 
-
     @Override
     public void activation() {
         ffNewPositions = new ArrayList<>();
@@ -30,9 +29,6 @@ public class FireFighters extends FireExtinguisher implements FightFire  {
         }
         firefightersList = ffNewPositions;
     }
-
-
-
 
     @Override
     public Position fightFire(Position position) {

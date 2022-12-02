@@ -1,13 +1,15 @@
-package element;
+package elements;
 
+import controller.Grid;
+import controller.Model;
 import util.Position;
 
 import java.util.*;
 
 public abstract class FireExtinguisher implements elements {
-    controller.Model model;
-    controller.Grid grid;
-    public FireExtinguisher(controller.Grid grid, controller.Model model){
+    Model model;
+    Grid grid;
+    public FireExtinguisher(Grid grid, Model model){
         this.grid = grid;
         this.model = model;
 
@@ -17,6 +19,7 @@ public abstract class FireExtinguisher implements elements {
         model.fires.getFiresPositions().remove(position);
         model.painter.paint(position.row, position.col);
     }
+
     Position aStepTowardFire(Position position) {
         Set<Position> seen = new HashSet<>();
         HashMap<Position, Position> firstMove = new HashMap<>();

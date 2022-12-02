@@ -1,6 +1,6 @@
 package controller;
 
-import element.Rocks;
+import elements.Rocks;
 import util.Position;
 import view.GridPainter;
 
@@ -15,14 +15,14 @@ public class Model {
     public double colCount;
     public double rowCount;
 
-    public element.Fires fires;
-    element.FireFighters fireFighters ;
-    element.FireTrucks fireTrucks ;
+    public elements.Fires fires;
+    elements.FireFighters fireFighters ;
+    elements.FireTrucks fireTrucks ;
 
-    element.Clouds clouds;
+    elements.Clouds clouds;
 
-    public element.Mountains mountains;
-    public element.Road road;
+    public elements.Mountains mountains;
+    public elements.Road road;
     Rocks rock;
 
 
@@ -31,12 +31,12 @@ public class Model {
         this.painter = new GridPainter(grid);
         colCount = grid.colCount;
         rowCount = grid.rowCount;
-        fireFighters = new element.FireFighters(grid, this);
-        fires = new element.Fires(grid, this);
-        clouds = new element.Clouds(grid, this);
-        fireTrucks = new element.FireTrucks(grid, this);
-        mountains = new element.Mountains(grid, this);
-        road = new element.Road(grid, this);
+        fireFighters = new elements.FireFighters(grid, this);
+        fires = new elements.Fires(grid, this);
+        clouds = new elements.Clouds(grid, this);
+        fireTrucks = new elements.FireTrucks(grid, this);
+        mountains = new elements.Mountains(grid, this);
+        road = new elements.Road(grid, this);
         rock = new Rocks(grid, this);
 
     }

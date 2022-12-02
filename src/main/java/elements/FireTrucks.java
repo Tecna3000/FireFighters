@@ -1,12 +1,12 @@
-package element;
+package elements;
 
 import util.Position;
 
 import java.util.*;
 
 public class FireTrucks extends FireExtinguisher implements FightFire {
-    List<Position> firetrucksList = new ArrayList<>();
-    List<Position> ftNewPositions;
+    private List<Position> firetrucksList = new ArrayList<>();
+    private List<Position> ftNewPositions;
 
     public FireTrucks(controller.Grid grid,controller.Model model) {
             super(grid,model);

@@ -1,4 +1,4 @@
-package element;
+package elements;
 
 import controller.Grid;
 import controller.Model;
@@ -12,7 +12,7 @@ import java.util.Set;
 public class Fires implements elements {
     Grid grid;
     Model model;
-    public Set<Position> firesSet = new HashSet<>();
+    private Set<Position> firesSet = new HashSet<>();
     int step = 0;
 
 
@@ -35,21 +35,12 @@ public class Fires implements elements {
             for (Position fire : firesSet) {
                 newFires.addAll(model.nextSkipMountainAndRoad(fire));
             }
-            List<Position> occupied = new ArrayList<>();
-
-//            for (Position newFire : newFires){
-//                if (model.road.getRoadPositions().contains(newFire) || model.mountains.getMountainsPositions().contains(newFire)) {
-//                    occupied.add(newFire);
-//                }
-//            }
-            //occupied.forEach(firesSet::remove);
             for (Position newFire : newFires)
                 grid.painter.paintFire( newFire.row, newFire.col);
             firesSet.addAll(newFires);
         }
         step++;
     }
-
     public Set<Position> getFiresPositions() {
         return firesSet;
     }

@@ -1,4 +1,4 @@
-package element;
+package elements;
 
 import controller.Grid;
 import controller.Model;
@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Mountains implements elements {
-    List<Position> mountainsList = new ArrayList<>();
+    private List<Position> mountainsList = new ArrayList<>();
     Grid grid;
     Model model;
     public Mountains(controller.Grid grid,controller.Model model) {
