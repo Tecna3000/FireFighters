@@ -15,7 +15,6 @@ public class FireFighters extends FireExtinguisher implements FightFire  {
     public void initialisation(int number) {
         for (int index = 0; index < number; index++)
             firefightersList.add(model.randomPosition());
-
     }
 
     @Override

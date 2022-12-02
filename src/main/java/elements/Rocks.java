@@ -6,6 +6,7 @@ import util.Position;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class Rocks implements elements {
     Grid grid;
@@ -19,7 +20,14 @@ public class Rocks implements elements {
     @Override
     public void initialisation(int number) {
         for (int index = 0; index < number; index++)
-            rockPositions.add(model.randomPosition());
+            rockPositions.add(setPosition());
+    }
+    public Position setPosition(){
+        Position randomPosition = model.randomPosition();
+        if(!(model.road.getRoadPositions().contains(randomPosition)||model.mountains.getMountainsPositions().contains(randomPosition))){
+            return  randomPosition;
+        }
+        return setPosition();
     }
 
     @Override
