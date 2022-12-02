@@ -1,9 +1,7 @@
 package view;
 
 import controller.Grid;
-import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
-import javafx.scene.paint.Color;
 
 import java.io.File;
 import java.net.MalformedURLException;
@@ -19,7 +17,6 @@ public class FfPainter extends GridPainter{
 
     public FfPainter(Grid grid) throws MalformedURLException {
         super(grid);
-        this.grid = grid;
     }
     public void paintFire(int row, int col) {
 
@@ -50,7 +47,6 @@ public class FfPainter extends GridPainter{
 
     public void paintRock(int row, int col) {
         context.drawImage(rockImage,row*height/rowCount,col*width/colCount,height/rowCount,width/colCount);
-
     }
 
 }
