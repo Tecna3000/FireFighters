@@ -7,11 +7,11 @@ import util.Position;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Road implements elements {
+public class Road implements Elements,Obstacles{
 
     Grid grid;
     Model model;
-    private List<Position> roadPositions = new ArrayList<>();
+    private final List<Position> roadPositions = new ArrayList<>();
     public Road(Grid grid, Model model) {
         this.grid = grid;
         this.model = model;
@@ -20,10 +20,7 @@ public class Road implements elements {
     @Override
     public void initialisation(int number) {
         for (int index = 0; index < number; index++)
-            roadPositions.add(model.randomPosition());
-//        List<Position> list = setPosition(number);
-//        roadPositions.addAll(list);
-
+            roadPositions.add(setPosition());
     }
 
     @Override
@@ -31,15 +28,15 @@ public class Road implements elements {
         for(Position road : roadPositions) grid.painter.paintRoad(road.row(),road.col());
 
     }
-//    public List<Position> setPosition(int roadNumber){
-//
-//
-//    }
-
-
-
+    @Override
+    public Position setPosition() {
+        Position randomPosition = model.randomPosition();
+        if(!(model.mountains.getMountainsPositions().contains(randomPosition))){
+            return  randomPosition;
+        }
+        return setPosition();
+    }
     public List<Position> getRoadPositions() {
         return roadPositions;
     }
-
 }

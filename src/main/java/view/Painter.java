@@ -1,6 +1,6 @@
 package view;
 
-public interface Paint {
+public interface Painter {
     void repaint();
     void paint(int row, int col);
 }

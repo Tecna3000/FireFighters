@@ -1,6 +1,6 @@
 package elements;
 
-public interface elements {
+public interface Elements {
      void initialisation(int number);
      void activation();
 }

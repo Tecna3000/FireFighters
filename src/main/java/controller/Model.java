@@ -1,42 +1,45 @@
 package controller;
 
-import elements.Rocks;
+import elements.*;
 import util.Position;
 import view.GridPainter;
 
 
+import java.net.MalformedURLException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Model {
-    public controller.Grid grid;
+    public Grid grid;
     public GridPainter painter;
 
     public double colCount;
     public double rowCount;
 
-    public elements.Fires fires;
-    elements.FireFighters fireFighters ;
-    elements.FireTrucks fireTrucks ;
 
-    elements.Clouds clouds;
-
-    public elements.Mountains mountains;
-    public elements.Road road;
-    Rocks rock;
-
+    private final FireFighters fireFighters ;
+    private final FireTrucks fireTrucks ;
+    private final Clouds clouds;
+    private final Rocks rock;
+    public Fires fires;
+    public Mountains mountains;
+    public Road road;
 
     public Model(controller.Grid grid) {
         this.grid = grid;
-        this.painter = new GridPainter(grid);
+        try {
+            this.painter = new GridPainter(grid);
+        } catch (MalformedURLException e) {
+            throw new RuntimeException(e);
+        }
         colCount = grid.colCount;
         rowCount = grid.rowCount;
-        fireFighters = new elements.FireFighters(grid, this);
-        fires = new elements.Fires(grid, this);
-        clouds = new elements.Clouds(grid, this);
-        fireTrucks = new elements.FireTrucks(grid, this);
-        mountains = new elements.Mountains(grid, this);
-        road = new elements.Road(grid, this);
+        fireFighters = new FireFighters(grid, this);
+        fires = new Fires(grid, this);
+        clouds = new Clouds(grid, this);
+        fireTrucks = new FireTrucks(grid, this);
+        mountains = new Mountains(grid, this);
+        road = new Road(grid, this);
         rock = new Rocks(grid, this);
 
     }
@@ -66,10 +69,10 @@ public class Model {
 
     public List<Position> next(Position position) {
         List<Position> list = new ArrayList<>();
-        if (position.row > 0) list.add(new Position(position.row - 1, position.col));
-        if (position.col > 0) list.add(new Position(position.row, position.col - 1));
-        if (position.row < rowCount - 1) list.add(new Position(position.row + 1, position.col));
-        if (position.col < colCount - 1) list.add(new Position(position.row, position.col + 1));
+        if (position.row() > 0) list.add(new Position(position.row() - 1, position.col()));
+        if (position.col() > 0) list.add(new Position(position.row(), position.col() - 1));
+        if (position.row() < rowCount - 1) list.add(new Position(position.row() + 1, position.col()));
+        if (position.col() < colCount - 1) list.add(new Position(position.row(), position.col() + 1));
         return list;
     }
 

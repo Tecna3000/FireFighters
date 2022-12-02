@@ -8,7 +8,6 @@ import java.util.Random;
 
 public class Clouds extends FireExtinguisher implements FightFire{
     private List<Position> cloudsList = new ArrayList<>();
-    private List<Position> cloudsNewPositions;
 
     public Clouds(controller.Grid grid,controller.Model model) {
         super(grid,model);
@@ -21,15 +20,14 @@ public class Clouds extends FireExtinguisher implements FightFire{
 
     @Override
     public void activation() {
-        cloudsNewPositions = new ArrayList<>();
+        List<Position> cloudsNewPositions = new ArrayList<>();
         for (Position cloud : cloudsList) {
             Position newPosition = fightFire(cloud);
-            grid.painter.paint(cloud.row, cloud.col);
-            grid.painter.paintCloud(newPosition.row, newPosition.col);
+            grid.painter.paint(cloud.row(), cloud.col());
+            grid.painter.paintCloud(newPosition.row(), newPosition.col());
             cloudsNewPositions.add(newPosition);
         }
         cloudsList = cloudsNewPositions;
-
     }
 
     public Position randomStep(Position position){

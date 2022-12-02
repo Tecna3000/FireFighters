@@ -5,6 +5,8 @@ import javafx.scene.input.MouseEvent;
 
 import view.GridPainter;
 
+import java.net.MalformedURLException;
+
 
 public class Grid extends Canvas implements Controller {
     int width, height;
@@ -13,7 +15,7 @@ public class Grid extends Canvas implements Controller {
     public controller.Model model;
     public GridPainter painter;
 
-    public Grid(int width, int height, int colCount, int rowCount){
+    public Grid(int width, int height, int colCount, int rowCount) throws MalformedURLException {
         super(width,height);
         this.colCount = colCount;this.rowCount = rowCount;
         this.width = width;this.height = height;
@@ -28,7 +30,11 @@ public class Grid extends Canvas implements Controller {
     public void restart(MouseEvent mouseEvent) {
         model = new controller.Model(this);
         model.initialisation(5,6,3,3,6,4,5);
-        painter = new GridPainter(this);
+        try {
+            painter = new GridPainter(this);
+        } catch (MalformedURLException e) {
+            throw new RuntimeException(e);
+        }
         getGraphicsContext2D().clearRect(0,0,width, height);
         painter.repaint();
     }

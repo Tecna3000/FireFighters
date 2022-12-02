@@ -7,7 +7,7 @@ import util.Position;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Mountains implements elements {
+public class Mountains implements Elements {
     private final List<Position> mountainsList = new ArrayList<>();
     Grid grid;
     Model model;

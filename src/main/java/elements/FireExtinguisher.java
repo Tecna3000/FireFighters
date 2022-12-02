@@ -6,18 +6,17 @@ import util.Position;
 
 import java.util.*;
 
-public abstract class FireExtinguisher implements elements {
+public abstract class FireExtinguisher implements Elements {
     Model model;
     Grid grid;
     public FireExtinguisher(Grid grid, Model model){
         this.grid = grid;
         this.model = model;
-
     }
 
     void extinguish(Position position) {
         model.fires.getFiresPositions().remove(position);
-        model.painter.paint(position.row, position.col);
+        model.painter.paint(position.row(), position.col());
     }
 
     Position aStepTowardFire(Position position) {

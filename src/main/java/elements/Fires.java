@@ -9,13 +9,11 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class Fires implements elements {
+public class Fires implements Elements {
     Grid grid;
     Model model;
-    private Set<Position> firesSet = new HashSet<>();
+    private final Set<Position> firesSet = new HashSet<>();
     int step = 0;
-
-
     public Fires(Grid grid, Model model) {
         this.grid =  grid;
         this.model = model;
@@ -36,7 +34,7 @@ public class Fires implements elements {
                 newFires.addAll(model.nextSkipMountainAndRoad(fire));
             }
             for (Position newFire : newFires)
-                grid.painter.paintFire( newFire.row, newFire.col);
+                grid.painter.paintFire( newFire.row(), newFire.col());
             firesSet.addAll(newFires);
         }
         step++;

@@ -4,89 +4,24 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
 
-
 import java.io.File;
 import java.net.MalformedURLException;
-public class GridPainter implements Paint{
+public class GridPainter implements Painter {
     double width;
     double height;
     int colCount;
     int rowCount;
     controller.Grid grid;
     GraphicsContext context;
+    Image ffImage = new Image( new File("../firefighterstarter/src/main/java/view/images/firefighter.png").toURI().toURL().toString());
+    Image fireImage = new Image( new File("../firefighterstarter/src/main/java/view/images/flamme.png").toURI().toURL().toString());
+    Image ftImage = new Image( new File("../firefighterstarter/src/main/java/view/images/firetruck.png").toURI().toURL().toString());
+    Image cloudImage = new Image( new File("../firefighterstarter/src/main/java/view/images/rain.png").toURI().toURL().toString());
+    Image mountainImage = new Image( new File("../firefighterstarter/src/main/java/view/images/mountain.png").toURI().toURL().toString());
+    Image roadImage = new Image( new File("../firefighterstarter/src/main/java/view/images/road.png").toURI().toURL().toString());
+    Image rockImage = new Image( new File("../firefighterstarter/src/main/java/view/images/rocks.png").toURI().toURL().toString());
 
-    Image ffImage;
-
-    {
-        try {
-            ffImage = new Image( new File("../firefighterstarter/src/main/java/view/images/firefighter.png").toURI().toURL().toString());
-        } catch (MalformedURLException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    Image fireImage;
-
-    {
-        try {
-            fireImage = new Image( new File("../firefighterstarter/src/main/java/view/images/flamme.png").toURI().toURL().toString());
-        } catch (MalformedURLException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    Image ftImage;
-
-    {
-        try {
-            ftImage = new Image( new File("../firefighterstarter/src/main/java/view/images/firetruck.png").toURI().toURL().toString());
-        } catch (MalformedURLException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    Image cloudImage;
-
-    {
-        try {
-            cloudImage = new Image( new File("../firefighterstarter/src/main/java/view/images/rain.png").toURI().toURL().toString());
-        } catch (MalformedURLException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    Image mountainImage;
-
-    {
-        try {
-            mountainImage = new Image( new File("../firefighterstarter/src/main/java/view/images/mountain.png").toURI().toURL().toString());
-        } catch (MalformedURLException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-
-    Image roadImage;
-
-    {
-        try {
-            roadImage = new Image( new File("../firefighterstarter/src/main/java/view/images/road.png").toURI().toURL().toString());
-        } catch (MalformedURLException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    Image rockImage;
-
-    {
-        try {
-            rockImage = new Image( new File("../firefighterstarter/src/main/java/view/images/rocks.png").toURI().toURL().toString());
-        } catch (MalformedURLException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    public GridPainter(controller.Grid grid){
+    public GridPainter(controller.Grid grid) throws MalformedURLException {
         this.grid = grid;
         context = grid.getGraphicsContext2D();
         this.width = grid.getWidth();

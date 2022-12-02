@@ -6,7 +6,6 @@ import java.util.*;
 
 public class FireTrucks extends FireExtinguisher implements FightFire {
     private List<Position> firetrucksList = new ArrayList<>();
-    private List<Position> ftNewPositions;
 
     public FireTrucks(controller.Grid grid,controller.Model model) {
             super(grid,model);
@@ -20,18 +19,15 @@ public class FireTrucks extends FireExtinguisher implements FightFire {
 
     @Override
     public void activation() {
-
-        ftNewPositions = new ArrayList<>();
+        List<Position> ftNewPositions = new ArrayList<>();
         for (Position ft : firetrucksList) {
             Position newPosition = fightFire(ft);
-            model.painter.paint(ft.row, ft.col);
-            grid.painter.paintFireTrucks(newPosition.row, newPosition.col);
+            model.painter.paint(ft.row(), ft.col());
+            grid.painter.paintFireTrucks(newPosition.row(), newPosition.col());
             ftNewPositions.add(newPosition);
         }
         firetrucksList = ftNewPositions;
-
     }
-
     private Position twoStepsTowardFire(Position position){
         Position firstStep = aStepTowardFire(position);
         return aStepTowardFire(firstStep);
