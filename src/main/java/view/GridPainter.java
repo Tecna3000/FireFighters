@@ -13,13 +13,13 @@ public class GridPainter implements Painter {
     int rowCount;
     controller.Grid grid;
     GraphicsContext context;
-    Image ffImage = new Image( new File("../firefighterstarter/src/main/java/view/images/firefighter.png").toURI().toURL().toString());
-    Image fireImage = new Image( new File("../firefighterstarter/src/main/java/view/images/flamme.png").toURI().toURL().toString());
-    Image ftImage = new Image( new File("../firefighterstarter/src/main/java/view/images/firetruck.png").toURI().toURL().toString());
-    Image cloudImage = new Image( new File("../firefighterstarter/src/main/java/view/images/rain.png").toURI().toURL().toString());
-    Image mountainImage = new Image( new File("../firefighterstarter/src/main/java/view/images/mountain.png").toURI().toURL().toString());
-    Image roadImage = new Image( new File("../firefighterstarter/src/main/java/view/images/road.png").toURI().toURL().toString());
-    Image rockImage = new Image( new File("../firefighterstarter/src/main/java/view/images/rocks.png").toURI().toURL().toString());
+    Image ffImage = new Image( new File("../firefighters/src/main/java/view/images/firefighter.png").toURI().toURL().toString());
+    Image fireImage = new Image( new File("../firefighters/src/main/java/view/images/flamme.png").toURI().toURL().toString());
+    Image ftImage = new Image( new File("../firefighters/src/main/java/view/images/firetruck.png").toURI().toURL().toString());
+    Image cloudImage = new Image( new File("../firefighters/src/main/java/view/images/rain.png").toURI().toURL().toString());
+    Image mountainImage = new Image( new File("../firefighters/src/main/java/view/images/mountain.png").toURI().toURL().toString());
+    Image roadImage = new Image( new File("../firefighters/src/main/java/view/images/road.png").toURI().toURL().toString());
+    Image rockImage = new Image( new File("../firefighters/src/main/java/view/images/rocks.png").toURI().toURL().toString());
 
     public GridPainter(controller.Grid grid) throws MalformedURLException {
         this.grid = grid;
