@@ -3,7 +3,7 @@ package controller;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.input.MouseEvent;
 
-import view.GridPainter;
+import view.FfPainter;
 
 import java.net.MalformedURLException;
 
@@ -13,13 +13,13 @@ public class Grid extends Canvas implements Controller {
      public int colCount;
     public int rowCount;
     public controller.Model model;
-    public GridPainter painter;
+    public FfPainter painter;
 
     public Grid(int width, int height, int colCount, int rowCount) throws MalformedURLException {
         super(width,height);
         this.colCount = colCount;this.rowCount = rowCount;
         this.width = width;this.height = height;
-        painter = new GridPainter(this);
+        painter = new FfPainter(this);
         setFocusTraversable(true);
         setOnMousePressed(this::mousePressed);
         model = new controller.Model(this);
@@ -31,7 +31,7 @@ public class Grid extends Canvas implements Controller {
         model = new controller.Model(this);
         model.initialisation(8,6,5,4,20,20,10);
         try {
-            painter = new GridPainter(this);
+            painter = new FfPainter(this);
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
         }

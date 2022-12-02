@@ -1,6 +1,6 @@
 
 import controller.Grid;
-import view.GridPainter;
+import view.FfPainter;
 import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Scene;
@@ -30,7 +30,7 @@ public class App extends Application {
         VBox buttons = new VBox();
         HBox total = new HBox();
         Grid grid = new Grid(800,800,20,20);
-        GridPainter painter = new GridPainter(grid);
+        FfPainter painter = new FfPainter(grid);
 
         root.getChildren().add(total);
         total.getChildren().add(buttons);

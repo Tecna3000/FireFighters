@@ -2,7 +2,7 @@ package controller;
 
 import elements.*;
 import util.Position;
-import view.GridPainter;
+import view.FfPainter;
 
 
 import java.net.MalformedURLException;
@@ -11,7 +11,7 @@ import java.util.List;
 
 public class Model {
     public Grid grid;
-    public GridPainter painter;
+    public FfPainter painter;
 
     public double colCount;
     public double rowCount;
@@ -28,7 +28,7 @@ public class Model {
     public Model(controller.Grid grid) {
         this.grid = grid;
         try {
-            this.painter = new GridPainter(grid);
+            this.painter = new FfPainter(grid);
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
         }
@@ -82,7 +82,6 @@ public class Model {
             list.remove(mountain);
         return list;
     }
-    //todo: update this methode
     public List<Position> nextSkipMountainAndRoad(Position position) {
         List<Position> list = nextSkipMountain(position);
         for(Position road : road.getPositions())
