@@ -23,13 +23,13 @@ public class Grid extends Canvas implements Controller {
         setFocusTraversable(true);
         setOnMousePressed(this::mousePressed);
         model = new controller.Model(this);
-        model.initialisation(5,8,3,3,6,4,5);
+        model.initialisation(8,8,5,10,20,20,10);
     }
 
     @Override
     public void restart(MouseEvent mouseEvent) {
         model = new controller.Model(this);
-        model.initialisation(5,6,3,3,6,4,5);
+        model.initialisation(8,6,5,4,20,20,10);
         try {
             painter = new GridPainter(this);
         } catch (MalformedURLException e) {

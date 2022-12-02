@@ -34,7 +34,7 @@ public class Clouds extends FireExtinguisher implements FightFire{
         List<Position> positions = model.next(position);
         Random random = new Random();
         int randomPosition = random.nextInt(positions.size());
-        if(!model.road.getRoadPositions().contains(positions.get(randomPosition)) ){
+        if(!model.road.getPositions().contains(positions.get(randomPosition)) ){
             return  positions.get(randomPosition);
         }
        return randomStep(position);

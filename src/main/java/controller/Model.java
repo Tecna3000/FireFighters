@@ -20,7 +20,7 @@ public class Model {
     private final FireFighters fireFighters ;
     private final FireTrucks fireTrucks ;
     private final Clouds clouds;
-    private final Rocks rock;
+    public final Rocks rock;
     public Fires fires;
     public Mountains mountains;
     public Road road;
@@ -58,10 +58,10 @@ public class Model {
     }
 
     public void activation() {
+        clouds.activation();
         road.activation();
         rock.activation();
         fireFighters.activation();
-        clouds.activation();
         fireTrucks.activation();
         mountains.activation();
         fires.activation();
@@ -78,14 +78,14 @@ public class Model {
 
     public List<Position> nextSkipMountain(Position position) {
         List<Position> list = next(position);
-        for(Position mountain : mountains.getMountainsPositions())
+        for(Position mountain : mountains.getPositions())
             list.remove(mountain);
         return list;
     }
     //todo: update this methode
     public List<Position> nextSkipMountainAndRoad(Position position) {
         List<Position> list = nextSkipMountain(position);
-        for(Position road : road.getRoadPositions())
+        for(Position road : road.getPositions())
             list.remove(road);
         return list;
     }

@@ -31,12 +31,13 @@ public class Road implements Elements,Obstacles{
     @Override
     public Position setPosition() {
         Position randomPosition = model.randomPosition();
-        if(!(model.mountains.getMountainsPositions().contains(randomPosition))){
+        if(!(model.mountains.getPositions().contains(randomPosition)||model.rock.getPositions().contains(randomPosition))){
             return  randomPosition;
         }
         return setPosition();
     }
-    public List<Position> getRoadPositions() {
+    @Override
+    public List<Position> getPositions() {
         return roadPositions;
     }
 }

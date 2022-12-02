@@ -27,9 +27,13 @@ public class Rocks implements Elements, Obstacles {
     @Override
     public Position setPosition(){
         Position randomPosition = model.randomPosition();
-        if(!(model.road.getRoadPositions().contains(randomPosition)||model.mountains.getMountainsPositions().contains(randomPosition))){
+        if(!(model.road.getPositions().contains(randomPosition)||model.mountains.getPositions().contains(randomPosition))){
             return  randomPosition;
         }
         return setPosition();
+    }
+    @Override
+    public List<Position> getPositions() {
+        return rockPositions;
     }
 }
