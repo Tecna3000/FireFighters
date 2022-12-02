@@ -33,7 +33,6 @@ public  final class Position {
         return Objects.hash(row, col);
     }
 
-
     @Override
     public String toString() {
         return "Elements.Position[" +

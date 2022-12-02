@@ -47,9 +47,9 @@ public class Clouds extends FireExtinguisher implements FightFire{
     public Position fightFire(Position position) {
         Position randomPosition = randomStep(position);
         List<Position> nextFires = model.next(randomPosition).stream().filter(model.fires.getFiresPositions()::contains).toList();
-        model.extinguish(randomPosition);
+        extinguish(randomPosition);
         for (Position fire : nextFires)
-            model.extinguish(fire);
+            extinguish(fire);
         return randomPosition;
     }
     

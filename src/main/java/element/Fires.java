@@ -42,7 +42,7 @@ public class Fires implements element {
                     occupied.add(newFire);
                 }
             }
-            firesSet.removeAll(occupied);
+            occupied.forEach(firesSet::remove);
             for (Position newFire : newFires){
                 model.painter.paintFire( newFire.row, newFire.col);
             }

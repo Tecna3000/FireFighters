@@ -79,10 +79,10 @@ public class Model {
             list.remove(mountain);
         return list;
     }
-    public void extinguish(Position position) {
-        fires.getFiresPositions().remove(position);
-        painter.paint(position.row, position.col);
-    }
+//    public void extinguish(Position position) {
+//        fires.getFiresPositions().remove(position);
+//        painter.paint(position.row, position.col);
+//    }
 
 
 

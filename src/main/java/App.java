@@ -27,7 +27,7 @@ public class App extends Application {
         Button switchPause = new Button("Pause");
         VBox buttons = new VBox();
         HBox total = new HBox();
-        controller.Grid grid = new controller.Grid(1000,1000,20,20);
+        controller.Grid grid = new controller.Grid(800,800,20,20);
         GridPainter painter = new GridPainter(grid);
 
         root.getChildren().add(total);
