@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Mountains implements elements {
-    private List<Position> mountainsList = new ArrayList<>();
+    private final List<Position> mountainsList = new ArrayList<>();
     Grid grid;
     Model model;
     public Mountains(controller.Grid grid,controller.Model model) {
@@ -21,7 +21,6 @@ public class Mountains implements elements {
         for (int index = 0; index < number; index++)
             mountainsList.add(model.randomPosition());
     }
-
     @Override
     public void activation() {
         for(Position mountain : mountainsList)
