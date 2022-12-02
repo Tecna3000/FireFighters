@@ -1,14 +1,16 @@
 package element;
 
+import controller.Grid;
+import controller.Model;
 import util.Position;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Mountains implements element {
+public class Mountains implements elements {
     List<Position> mountainsList = new ArrayList<>();
-    controller.Grid grid;
-    controller.Model model;
+    Grid grid;
+    Model model;
     public Mountains(controller.Grid grid,controller.Model model) {
         this.grid =  grid;
         this.model = model;

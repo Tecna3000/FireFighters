@@ -43,25 +43,25 @@ public class Model {
 
 
     public void initialisation(int fireNumber, int fireFighterNumber, int cloudNumber, int fireTrucksNumber,int mountainsNumber, int roadNumber, int rockNumber) {
+        road.initialisation(roadNumber);
+        rock.initialisation(rockNumber);
         fireFighters.initialisation(fireFighterNumber);
         clouds.initialisation(cloudNumber);
         fireTrucks.initialisation(fireTrucksNumber);
-        fires.initialisation(fireNumber);
         mountains.initialisation(mountainsNumber);
-        road.initialisation(roadNumber);
-        rock.initialisation(rockNumber);
+        fires.initialisation(fireNumber);
+
+
     }
 
     public void activation() {
+        road.activation();
+        rock.activation();
         fireFighters.activation();
         clouds.activation();
         fireTrucks.activation();
         mountains.activation();
         fires.activation();
-        road.activation();
-        rock.activation();
-
-
     }
 
     public List<Position> next(Position position) {
@@ -79,13 +79,13 @@ public class Model {
             list.remove(mountain);
         return list;
     }
-//    public void extinguish(Position position) {
-//        fires.getFiresPositions().remove(position);
-//        painter.paint(position.row, position.col);
-//    }
-
-
-
+    //todo: update this methode
+    public List<Position> nextSkipMountainAndRoad(Position position) {
+        List<Position> list = nextSkipMountain(position);
+        for(Position road : road.getRoadPositions())
+            list.remove(road);
+        return list;
+    }
     public Position randomPosition() {
         return new Position((int) (Math.random() *rowCount), (int) (Math.random() * colCount));
     }

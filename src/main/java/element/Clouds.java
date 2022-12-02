@@ -14,8 +14,6 @@ public class Clouds extends FireExtinguisher implements FightFire{
         super(grid,model);
     }
 
-
-
     @Override
     public void initialisation(int number) {
         for (int index = 0; index < number; index++) cloudsList.add(model.randomPosition());
@@ -34,14 +32,14 @@ public class Clouds extends FireExtinguisher implements FightFire{
 
     }
 
-    public Position randomStep(Position positon){
-        List<Position> positions = model.next(positon);
+    public Position randomStep(Position position){
+        List<Position> positions = model.next(position);
         Random random = new Random();
         int randomPosition = random.nextInt(positions.size());
         if(!model.road.getRoadPositions().contains(positions.get(randomPosition)) ){
             return  positions.get(randomPosition);
         }
-       return randomStep(positon);
+       return randomStep(position);
     }
     @Override
     public Position fightFire(Position position) {
@@ -52,5 +50,4 @@ public class Clouds extends FireExtinguisher implements FightFire{
             extinguish(fire);
         return randomPosition;
     }
-    
 }

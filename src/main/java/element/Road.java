@@ -7,7 +7,7 @@ import util.Position;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Road implements element {
+public class Road implements elements {
 
     Grid grid;
     Model model;

@@ -7,12 +7,10 @@ import util.Position;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Rocks implements element{
-
+public class Rocks implements elements {
     Grid grid;
     Model model;
     List<Position> rockPositions = new ArrayList<>();
-
     public Rocks(Grid grid, controller.Model model) {
         this.grid = grid;
         this.model = model;
