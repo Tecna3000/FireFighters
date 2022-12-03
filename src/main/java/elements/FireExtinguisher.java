@@ -16,7 +16,7 @@ public abstract class FireExtinguisher implements Elements {
 
     void extinguish(Position position) {
         model.fires.getFiresPositions().remove(position);
-        model.painter.paint(position.row(), position.col());
+        grid.painter.paint(position.row(), position.col());
     }
 
     Position aStepTowardFire(Position position) {

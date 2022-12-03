@@ -24,7 +24,7 @@ public class FireTrucks extends FireExtinguisher implements FightFire {
         List<Position> ftNewPositions = new ArrayList<>();
         for (Position ft : firetrucksList) {
             Position newPosition = fightFire(ft);
-            model.painter.paint(ft.row(), ft.col());
+            grid.painter.paint(ft.row(), ft.col());
             grid.painter.paintFireTrucks(newPosition.row(), newPosition.col());
             ftNewPositions.add(newPosition);
         }

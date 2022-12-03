@@ -2,21 +2,9 @@ package controller;
 
 import elements.*;
 import util.Position;
-import view.FfPainter;
-
-
-import java.net.MalformedURLException;
-import java.util.ArrayList;
 import java.util.List;
 
-public class FireFighterGame implements Model {
-    public FireFighterGrid grid;
-    public FfPainter painter;
-
-    public double colCount;
-    public double rowCount;
-
-
+public class FireFighterGame extends Movement implements Model {
     private final FireFighters fireFighters ;
     private final FireTrucks fireTrucks ;
     private final Clouds clouds;
@@ -26,14 +14,7 @@ public class FireFighterGame implements Model {
     public Road road;
 
     public FireFighterGame(FireFighterGrid grid) {
-        this.grid = grid;
-        try {
-            this.painter = new FfPainter(grid);
-        } catch (MalformedURLException e) {
-            throw new RuntimeException(e);
-        }
-        colCount = grid.colCount;
-        rowCount = grid.rowCount;
+        super(grid.rowCount, grid.colCount);
         fireFighters = new FireFighters(grid, this);
         fires = new Fires(grid, this);
         clouds = new Clouds(grid, this);
@@ -66,19 +47,7 @@ public class FireFighterGame implements Model {
         mountains.activation();
         fires.activation();
     }
-    @Override
-    public Position randomPosition() {
-        return new Position((int) (Math.random() *rowCount), (int) (Math.random() * colCount));
-    }
 
-    public List<Position> next(Position position) {
-        List<Position> list = new ArrayList<>();
-        if (position.row() > 0) list.add(new Position(position.row() - 1, position.col()));
-        if (position.col() > 0) list.add(new Position(position.row(), position.col() - 1));
-        if (position.row() < rowCount - 1) list.add(new Position(position.row() + 1, position.col()));
-        if (position.col() < colCount - 1) list.add(new Position(position.row(), position.col() + 1));
-        return list;
-    }
 
     public List<Position> nextSkipMountain(Position position) {
         List<Position> list = next(position);

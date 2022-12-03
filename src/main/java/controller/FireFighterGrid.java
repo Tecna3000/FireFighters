@@ -8,14 +8,15 @@ import java.net.MalformedURLException;
 
 
 public class FireFighterGrid extends Grid{
-    int width, height;
-    public int colCount;
-    public int rowCount;
+    private final int width,height;
     public FireFighterGame model;
     public FfPainter painter;
+    public final int colCount;
+    public final int rowCount;
+
 
     public FireFighterGrid(int width, int height, int colCount, int rowCount) throws MalformedURLException {
-        super(width, height, colCount, rowCount);
+        super(width, height,colCount,rowCount);
         this.colCount = colCount;this.rowCount = rowCount;
         this.width = width;this.height = height;
         painter = new FfPainter(this);
