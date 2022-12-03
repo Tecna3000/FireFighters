@@ -1,7 +1,6 @@
 package view;
 
-import controller.FireFighterGrid;
-import controller.Grid;
+import model.Grid;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 

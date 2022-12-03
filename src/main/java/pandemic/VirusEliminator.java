@@ -1,6 +1,5 @@
-package elements;
-import controller.PandemicGame;
-import controller.PandemicGrid;
+package pandemic;
+import model.Elements;
 import util.Position;
 
 import java.util.*;

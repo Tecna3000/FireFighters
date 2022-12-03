@@ -1,7 +1,6 @@
 package elements;
 
-import controller.FireFighterGrid;
-import controller.FireFighterGame;
+import model.Elements;
 import util.Position;
 
 import java.util.*;

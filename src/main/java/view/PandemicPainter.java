@@ -1,6 +1,6 @@
 package view;
 
-import controller.PandemicGrid;
+import pandemic.PandemicGrid;
 import javafx.scene.image.Image;
 
 import java.io.File;

@@ -1,5 +1,6 @@
-package controller;
+package elements;
 
+import model.Grid;
 import javafx.scene.input.MouseEvent;
 
 import view.FfPainter;
@@ -7,7 +8,7 @@ import view.FfPainter;
 import java.net.MalformedURLException;
 
 
-public class FireFighterGrid extends Grid{
+public class FireFighterGrid extends Grid {
     private final int width,height;
     public FireFighterGame model;
     public FfPainter painter;

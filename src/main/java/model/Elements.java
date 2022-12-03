@@ -1,4 +1,4 @@
-package elements;
+package model;
 
 public interface Elements {
      void initialisation(int number);

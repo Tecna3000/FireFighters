@@ -1,6 +1,4 @@
-package controller;
-
-import util.Position;
+package model;
 
 public interface Model {
     void initialisation();

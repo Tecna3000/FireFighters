@@ -1,6 +1,7 @@
-package controller;
+package elements;
 
-import elements.*;
+import model.Model;
+import model.Movement;
 import util.Position;
 import java.util.List;
 

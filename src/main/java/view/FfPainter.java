@@ -1,6 +1,6 @@
 package view;
 
-import controller.FireFighterGrid;
+import elements.FireFighterGrid;
 import javafx.scene.image.Image;
 
 import java.io.File;

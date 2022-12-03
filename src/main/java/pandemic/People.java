@@ -1,8 +1,6 @@
 package pandemic;
 
-import controller.PandemicGame;
-import controller.PandemicGrid;
-import elements.Elements;
+import model.Elements;
 import util.Position;
 
 import java.util.ArrayList;
@@ -28,8 +26,4 @@ public class People implements Elements {
         for(Position people : peoplePositions) grid.painter.paintPeople(people.row(),people.col());
 
     }
-    public List<Position> getPeoplePositions() {
-        return peoplePositions;
-    }
-
 }

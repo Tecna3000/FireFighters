@@ -1,9 +1,5 @@
 package pandemic;
 
-import controller.PandemicGame;
-import controller.PandemicGrid;
-import elements.EliminateVirus;
-import elements.VirusEliminator;
 import util.Position;
 
 import java.util.ArrayList;

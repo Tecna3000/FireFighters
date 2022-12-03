@@ -1,9 +1,10 @@
-package controller;
+package pandemic;
 
 
-import pandemic.*;
+import model.Model;
+import model.Movement;
 
-public class PandemicGame extends Movement implements Model{
+public class PandemicGame extends Movement implements Model {
 
      final Doctors doctors ;
      public final Virus virus ;

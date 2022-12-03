@@ -1,7 +1,5 @@
 
-import controller.FireFighterGrid;
-import controller.PandemicGrid;
-import view.FfPainter;
+import pandemic.PandemicGrid;
 import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Scene;

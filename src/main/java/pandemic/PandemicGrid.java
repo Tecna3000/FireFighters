@@ -1,12 +1,12 @@
-package controller;
+package pandemic;
 
+import model.Grid;
 import javafx.scene.input.MouseEvent;
-import view.FfPainter;
 import view.PandemicPainter;
 
 import java.net.MalformedURLException;
 
-public class PandemicGrid extends Grid{
+public class PandemicGrid extends Grid {
     private final int width,height;
     public PandemicGame model;
     public PandemicPainter painter;

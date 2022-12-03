@@ -1,8 +1,6 @@
 package pandemic;
 
-import controller.PandemicGame;
-import controller.PandemicGrid;
-import elements.Elements;
+import model.Elements;
 import util.Position;
 
 import java.util.*;
