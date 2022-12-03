@@ -18,7 +18,6 @@ public class Doctors extends VirusEliminator implements EliminateVirus {
         super(grid,model);
         this.grid = grid;
         this.model = model;
-
     }
 
     @Override

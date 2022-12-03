@@ -9,7 +9,7 @@ public class PandemicGame extends Movement implements Model{
 
      final Doctors doctors ;
      public final Virus virus ;
-     final People people;
+     public final People people;
 
     public PandemicGame(PandemicGrid grid) {
         super(grid.rowCount, grid.colCount);
@@ -25,6 +25,7 @@ public class PandemicGame extends Movement implements Model{
     public void initialisation() {
         doctors.initialisation(3);
         virus.initialisation(3);
+        people.initialisation(3);
 
     }
 
@@ -32,6 +33,7 @@ public class PandemicGame extends Movement implements Model{
     public void activation() {
         virus.activation();
         doctors.activation();
+        people.activation();
 
     }
 }

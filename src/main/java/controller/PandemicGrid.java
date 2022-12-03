@@ -21,12 +21,12 @@ public class PandemicGrid extends Grid{
         setFocusTraversable(true);
         setOnMousePressed(this::mousePressed);
         model = new PandemicGame(this);
-        model.initialisation(0,0,0,0,0,0,0);
+        model.initialisation();
     }
     @Override
     public void restart(MouseEvent mouseEvent) {
         model = new PandemicGame(this);
-        model.initialisation(0,0,0,0,0,0,0);
+        model.initialisation();
         try {
             painter = new PandemicPainter(this);
         } catch (MalformedURLException e) {
