@@ -1,6 +1,8 @@
 package elements;
 
 
+import controller.FireFighterGame;
+import controller.FireFighterGrid;
 import util.Position;
 import java.util.ArrayList;
 import java.util.List;
@@ -9,7 +11,7 @@ import java.util.Random;
 public class Clouds extends FireExtinguisher implements FightFire{
     private List<Position> cloudsList = new ArrayList<>();
 
-    public Clouds(controller.Grid grid,controller.Model model) {
+    public Clouds(FireFighterGrid grid, FireFighterGame model) {
         super(grid,model);
     }
 

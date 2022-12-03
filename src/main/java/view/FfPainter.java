@@ -1,6 +1,6 @@
 package view;
 
-import controller.Grid;
+import controller.FireFighterGrid;
 import javafx.scene.image.Image;
 
 import java.io.File;
@@ -15,7 +15,7 @@ public class FfPainter extends GridPainter{
     Image roadImage = new Image( new File("../firefighters/src/main/java/view/images/road.png").toURI().toURL().toString());
     Image rockImage = new Image( new File("../firefighters/src/main/java/view/images/rocks.png").toURI().toURL().toString());
 
-    public FfPainter(Grid grid) throws MalformedURLException {
+    public FfPainter(FireFighterGrid grid) throws MalformedURLException {
         super(grid);
     }
     public void paintFire(int row, int col) {

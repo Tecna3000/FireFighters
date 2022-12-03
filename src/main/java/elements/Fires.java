@@ -1,7 +1,7 @@
 package elements;
 
-import controller.Grid;
-import controller.Model;
+import controller.FireFighterGrid;
+import controller.FireFighterGame;
 import util.Position;
 
 import java.util.ArrayList;
@@ -10,11 +10,11 @@ import java.util.List;
 import java.util.Set;
 
 public class Fires implements Elements {
-    Grid grid;
-    Model model;
+    FireFighterGrid grid;
+    FireFighterGame model;
     private final Set<Position> firesSet = new HashSet<>();
     int step = 0;
-    public Fires(Grid grid, Model model) {
+    public Fires(FireFighterGrid grid, FireFighterGame model) {
         this.grid =  grid;
         this.model = model;
     }

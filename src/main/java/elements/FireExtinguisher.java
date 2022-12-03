@@ -1,15 +1,15 @@
 package elements;
 
-import controller.Grid;
-import controller.Model;
+import controller.FireFighterGrid;
+import controller.FireFighterGame;
 import util.Position;
 
 import java.util.*;
 
 public abstract class FireExtinguisher implements Elements {
-    Model model;
-    Grid grid;
-    public FireExtinguisher(Grid grid, Model model){
+    FireFighterGame model;
+    FireFighterGrid grid;
+    public FireExtinguisher(FireFighterGrid grid, FireFighterGame model){
         this.grid = grid;
         this.model = model;
     }

@@ -1,5 +1,7 @@
 package elements;
 
+import controller.FireFighterGame;
+import controller.FireFighterGrid;
 import util.Position;
 
 import java.util.*;
@@ -7,7 +9,7 @@ import java.util.*;
 public class FireTrucks extends FireExtinguisher implements FightFire {
     private List<Position> firetrucksList = new ArrayList<>();
 
-    public FireTrucks(controller.Grid grid,controller.Model model) {
+    public FireTrucks(FireFighterGrid grid, FireFighterGame model) {
             super(grid,model);
         }
 

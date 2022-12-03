@@ -1,5 +1,5 @@
 
-import controller.Grid;
+import controller.FireFighterGrid;
 import view.FfPainter;
 import javafx.application.Application;
 import javafx.scene.Group;
@@ -29,7 +29,7 @@ public class App extends Application {
         Button switchPause = new Button("Pause");
         VBox buttons = new VBox();
         HBox total = new HBox();
-        Grid grid = new Grid(800,800,20,20);
+        FireFighterGrid grid = new FireFighterGrid(800,800,20,20);
         FfPainter painter = new FfPainter(grid);
 
         root.getChildren().add(total);

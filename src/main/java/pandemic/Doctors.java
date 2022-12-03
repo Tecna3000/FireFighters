@@ -7,7 +7,6 @@ public class Doctors implements Elements {
     public void initialisation(int number) {
 
     }
-
     @Override
     public void activation() {
 

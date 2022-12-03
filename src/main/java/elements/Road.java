@@ -1,7 +1,7 @@
 package elements;
 
-import controller.Grid;
-import controller.Model;
+import controller.FireFighterGrid;
+import controller.FireFighterGame;
 import util.Position;
 
 import java.util.ArrayList;
@@ -9,13 +9,12 @@ import java.util.List;
 
 public class Road implements Elements,Obstacles{
 
-    Grid grid;
-    Model model;
+    FireFighterGrid grid;
+    FireFighterGame model;
     private final List<Position> roadPositions = new ArrayList<>();
-    public Road(Grid grid, Model model) {
+    public Road(FireFighterGrid grid, FireFighterGame model) {
         this.grid = grid;
         this.model = model;
-
     }
     @Override
     public void initialisation(int number) {

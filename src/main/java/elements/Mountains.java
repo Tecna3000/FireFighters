@@ -1,7 +1,7 @@
 package elements;
 
-import controller.Grid;
-import controller.Model;
+import controller.FireFighterGrid;
+import controller.FireFighterGame;
 import util.Position;
 
 import java.util.ArrayList;
@@ -9,9 +9,9 @@ import java.util.List;
 
 public class Mountains implements Elements,Obstacles {
     private final List<Position> mountainsList = new ArrayList<>();
-    Grid grid;
-    Model model;
-    public Mountains(controller.Grid grid,controller.Model model) {
+    FireFighterGrid grid;
+    FireFighterGame model;
+    public Mountains(FireFighterGrid grid, FireFighterGame model) {
         this.grid =  grid;
         this.model = model;
     }

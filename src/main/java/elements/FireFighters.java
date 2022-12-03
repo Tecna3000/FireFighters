@@ -1,12 +1,14 @@
 package elements;
 
+import controller.FireFighterGame;
+import controller.FireFighterGrid;
 import util.Position;
 import java.util.*;
 
 public class FireFighters extends FireExtinguisher implements FightFire  {
     private List<Position> firefightersList = new ArrayList<>();
 
-    public FireFighters(controller.Grid grid,controller.Model model) {
+    public FireFighters(FireFighterGrid grid, FireFighterGame model) {
         super(grid,model);
     }
 

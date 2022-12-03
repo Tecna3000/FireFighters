@@ -1,17 +1,17 @@
 package elements;
 
-import controller.Grid;
-import controller.Model;
+import controller.FireFighterGrid;
+import controller.FireFighterGame;
 import util.Position;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Rocks implements Elements, Obstacles {
-    Grid grid;
-    Model model;
+    FireFighterGrid grid;
+    FireFighterGame model;
     private final List<Position> rockPositions = new ArrayList<>();
-    public Rocks(Grid grid, controller.Model model) {
+    public Rocks(FireFighterGrid grid, FireFighterGame model) {
         this.grid = grid;
         this.model = model;
     }

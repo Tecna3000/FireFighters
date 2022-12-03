@@ -1,6 +1,6 @@
 package view;
 
-import controller.Grid;
+import controller.FireFighterGrid;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 
@@ -10,9 +10,9 @@ public class GridPainter implements Painter{
     double height;
     int colCount;
     int rowCount;
-    Grid grid;
+    FireFighterGrid grid;
     GraphicsContext context;
-    public GridPainter(controller.Grid grid) {
+    public GridPainter(FireFighterGrid grid) {
         this.grid = grid;
         context = grid.getGraphicsContext2D();
         this.width = grid.getWidth();
