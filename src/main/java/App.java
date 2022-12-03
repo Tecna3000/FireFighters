@@ -1,5 +1,6 @@
 
 import controller.FireFighterGrid;
+import controller.PandemicGrid;
 import view.FfPainter;
 import javafx.application.Application;
 import javafx.scene.Group;
@@ -8,6 +9,7 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import view.PandemicPainter;
 
 import java.net.MalformedURLException;
 import java.util.concurrent.ScheduledThreadPoolExecutor;
@@ -29,8 +31,8 @@ public class App extends Application {
         Button switchPause = new Button("Pause");
         VBox buttons = new VBox();
         HBox total = new HBox();
-        FireFighterGrid grid = new FireFighterGrid(800,800,20,20);
-        FfPainter painter = new FfPainter(grid);
+        PandemicGrid grid = new PandemicGrid(800,800,20,20);
+        PandemicPainter painter = new PandemicPainter(grid);
 
         root.getChildren().add(total);
         total.getChildren().add(buttons);

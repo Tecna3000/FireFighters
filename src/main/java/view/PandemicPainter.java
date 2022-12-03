@@ -1,6 +1,5 @@
 package view;
 
-import controller.FireFighterGrid;
 import controller.PandemicGrid;
 import javafx.scene.image.Image;
 
@@ -9,11 +8,11 @@ import java.net.MalformedURLException;
 
 public class PandemicPainter extends GridPainter {
 
-    Image doctorImage = new Image( new File("../firefighters/src/main/java/view/images/firefighter.png").toURI().toURL().toString());
-    Image virusImage = new Image( new File("../firefighters/src/main/java/view/images/flamme.png").toURI().toURL().toString());
-    Image peopleImage = new Image( new File("../firefighters/src/main/java/view/images/firetruck.png").toURI().toURL().toString());
-    Image doctorVImage = new Image( new File("../firefighters/src/main/java/view/images/rain.png").toURI().toURL().toString());
-    Image vpImage = new Image( new File("../firefighters/src/main/java/view/images/mountain.png").toURI().toURL().toString());
+    Image doctorImage = new Image( new File("../firefighters/src/main/java/view/images/doctor.png").toURI().toURL().toString());
+    Image virusImage = new Image( new File("../firefighters/src/main/java/view/images/virus.png").toURI().toURL().toString());
+    Image peopleImage = new Image( new File("../firefighters/src/main/java/view/images/sick.png").toURI().toURL().toString());
+    Image doctorVImage = new Image( new File("../firefighters/src/main/java/view/images/doctorv.png").toURI().toURL().toString());
+    Image vpImage = new Image( new File("../firefighters/src/main/java/view/images/vaccinated.png").toURI().toURL().toString());
 
     public PandemicPainter(PandemicGrid grid) throws MalformedURLException {
         super(grid);

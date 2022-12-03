@@ -1,25 +1,37 @@
 package controller;
 
 
+import pandemic.Doctors;
+import pandemic.People;
+import pandemic.Virus;
 
 public class PandemicGame extends Movement implements Model{
 
+     final Doctors doctors ;
+     public final Virus virus ;
+     final People people;
 
     public PandemicGame(PandemicGrid grid) {
-        super(0,1);
+        super(grid.rowCount, grid.colCount);
+        doctors = new Doctors(grid,this);
+        virus = new Virus(grid,this);
+        people = new People(grid,this);
 
-        //  super(grid.rowCount, grid.colCount);
 
     }
 
 
     @Override
-    public void initialisation(int fireNumber, int fireFighterNumber, int cloudNumber, int fireTrucksNumber, int mountainsNumber, int roadNumber, int rockNumber) {
+    public void initialisation() {
+        doctors.initialisation(3);
+        virus.initialisation(3);
 
     }
 
     @Override
     public void activation() {
+        virus.activation();
+        doctors.activation();
 
     }
 }

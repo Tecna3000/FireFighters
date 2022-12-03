@@ -1,5 +1,6 @@
 package controller;
 
+import javafx.scene.input.MouseEvent;
 import view.FfPainter;
 import view.PandemicPainter;
 
@@ -20,6 +21,23 @@ public class PandemicGrid extends Grid{
         setFocusTraversable(true);
         setOnMousePressed(this::mousePressed);
         model = new PandemicGame(this);
-        model.initialisation(10,8,5,10,20,20,10);
+        model.initialisation(0,0,0,0,0,0,0);
+    }
+    @Override
+    public void restart(MouseEvent mouseEvent) {
+        model = new PandemicGame(this);
+        model.initialisation(0,0,0,0,0,0,0);
+        try {
+            painter = new PandemicPainter(this);
+        } catch (MalformedURLException e) {
+            throw new RuntimeException(e);
+        }
+        getGraphicsContext2D().clearRect(0,0,width, height);
+        painter.repaint();
+    }
+    @Override
+    public void mousePressed(MouseEvent mouseEvent) {
+        model.activation();
+        painter.repaint();
     }
 }

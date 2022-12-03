@@ -26,14 +26,14 @@ public class FireFighterGame extends Movement implements Model {
     }
 
     @Override
-    public void initialisation(int fireNumber, int fireFighterNumber, int cloudNumber, int fireTrucksNumber,int mountainsNumber, int roadNumber, int rockNumber) {
-        road.initialisation(roadNumber);
-        rock.initialisation(rockNumber);
-        fireFighters.initialisation(fireFighterNumber);
-        clouds.initialisation(cloudNumber);
-        fireTrucks.initialisation(fireTrucksNumber);
-        mountains.initialisation(mountainsNumber);
-        fires.initialisation(fireNumber);
+    public void initialisation() {
+        road.initialisation(10);
+        rock.initialisation(10);
+        fireFighters.initialisation(10);
+        clouds.initialisation(5);
+        fireTrucks.initialisation(5);
+        mountains.initialisation(7);
+        fires.initialisation(10);
 
 
     }

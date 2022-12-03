@@ -23,12 +23,12 @@ public class FireFighterGrid extends Grid{
         setFocusTraversable(true);
         setOnMousePressed(this::mousePressed);
         model = new FireFighterGame(this);
-        model.initialisation(10,8,5,10,20,20,10);
+        model.initialisation();
     }
     @Override
     public void restart(MouseEvent mouseEvent) {
         model = new FireFighterGame(this);
-        model.initialisation(10,6,5,4,20,20,10);
+        model.initialisation();
         try {
             painter = new FfPainter(this);
         } catch (MalformedURLException e) {
