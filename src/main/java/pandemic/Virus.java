@@ -27,52 +27,17 @@ public class Virus implements Elements {
     @Override
     public void activation() {
         if (step % 2 == 0) {
-            List<Position> newVirus = new ArrayList<>();
+            List<Position> newFires = new ArrayList<>();
             for (Position virus : virusSet) {
-                Position newPosition = this.contaminate(virus);
-                grid.painter.paint(virus.row(), virus.col());
-                grid.painter.paintVirus(newPosition.row(), newPosition.col());
 
-                newVirus.addAll(model.next(virus));
+                newFires.addAll(model.next(virus));
             }
-            for (Position virus : newVirus )
-                grid.painter.paintVirus( virus.row(), virus.col());
-            virusSet.addAll(newVirus);
+            for (Position newVirus : newFires)
+                grid.painter.paintVirus(newVirus.row(), newVirus.col());
+            virusSet.addAll(newFires);
         }
         step++;
     }
-
-    public Position aStepTowardPeople(Position position) {
-        Set<Position> seen = new HashSet<>();
-        HashMap<Position, Position> firstMove = new HashMap<>();
-        Queue<Position> toVisit = new LinkedList<>(model.next(position));
-        for (Position initialMove : toVisit)
-            firstMove.put(initialMove, initialMove);
-        while (!toVisit.isEmpty()) {
-            Position current = toVisit.poll();
-            if (model.people.getPeoplePositions().contains(current))
-                return firstMove.get(current);
-            for (Position adjacent : model.next(current)) {
-                if (seen.contains(adjacent)) continue;
-                toVisit.add(adjacent);
-                seen.add(adjacent);
-                firstMove.put(adjacent, firstMove.get(current));
-            }
-        }
-        return position;
-    }
-    public Position contaminate(Position position) {
-        Position randomPosition = aStepTowardPeople(position);
-        List<Position> nextPeople = grid.model.next(randomPosition).stream().filter(model.people.getPeoplePositions()::contains).toList();
-        model.people.getPeoplePositions().remove(position);
-        grid.painter.paint(position.row(), position.col());
-        for (Position people : nextPeople){
-            model.people.getPeoplePositions().remove(people);
-            grid.painter.paint(position.row(), position.col());
-    }
-        return randomPosition;
-    }
-
 
     public Set<Position> getVirusPositions() {
         return virusSet;
