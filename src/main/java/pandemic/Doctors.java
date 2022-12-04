@@ -44,4 +44,8 @@ public class Doctors extends VirusEliminator implements EliminateVirus {
             eliminate(virus);
         return randomPosition;
     }
+
+    public List<Position> getDoctorsPositions() {
+        return doctorsList;
+    }
 }

@@ -24,10 +24,10 @@ public class PandemicGame extends Movement implements Model {
 
     @Override
     public void initialisation() {
-        doctors.initialisation(10);
+        doctors.initialisation(5);
         virus.initialisation(5);
         people.initialisation(10);
-        vaccinatedPeople.initialisation(5);
+        vaccinatedPeople.initialisation(8);
         virologists.initialisation(5);
     }
 

@@ -26,7 +26,7 @@ public class VaccinatedPeople implements Elements {
         for(Position people : vpPositions) grid.painter.paintVp(people.row(),people.col());
 
     }
-    public List<Position> getVpPositions() {
+    public List<Position> getPositions() {
         return vpPositions;
     }
 }

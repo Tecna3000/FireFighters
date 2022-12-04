@@ -1,4 +1,4 @@
-package elements;
+package firefighters;
 
 import model.Grid;
 import javafx.scene.input.MouseEvent;

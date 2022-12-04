@@ -1,4 +1,4 @@
-package elements;
+package firefighters;
 
 import model.Elements;
 import util.Position;

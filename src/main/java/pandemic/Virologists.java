@@ -45,4 +45,8 @@ public class Virologists extends VirusEliminator implements EliminateVirus {
         Position firstStep = aStepTowardVirus(position);
         return aStepTowardVirus(firstStep);
     }
+
+    public List<Position> getPosition() {
+        return virologistsList;
+    }
 }

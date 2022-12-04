@@ -1,6 +1,6 @@
 package view;
 
-import elements.FireFighterGrid;
+import firefighters.FireFighterGrid;
 import javafx.scene.image.Image;
 
 import java.io.File;

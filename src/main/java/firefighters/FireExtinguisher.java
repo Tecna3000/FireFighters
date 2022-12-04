@@ -1,4 +1,4 @@
-package elements;
+package firefighters;
 
 import model.Elements;
 import util.Position;
@@ -21,14 +21,14 @@ public abstract class FireExtinguisher implements Elements {
     Position aStepTowardFire(Position position) {
         Set<Position> seen = new HashSet<>();
         HashMap<Position, Position> firstMove = new HashMap<>();
-        Queue<Position> toVisit = new LinkedList<>(model.nextSkipMountain(position));
+        Queue<Position> toVisit = new LinkedList<>(model.skipMountain(position));
         for (Position initialMove : toVisit)
             firstMove.put(initialMove, initialMove);
         while (!toVisit.isEmpty()) {
             Position current = toVisit.poll();
             if (model.fires.getFiresPositions().contains(current))
                 return firstMove.get(current);
-            for (Position adjacent : model.nextSkipMountain(current)) {
+            for (Position adjacent : model.skipMountain(current)) {
                 if (seen.contains(adjacent)) continue;
                 toVisit.add(adjacent);
                 seen.add(adjacent);

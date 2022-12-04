@@ -1,4 +1,4 @@
-package elements;
+package firefighters;
 
 import model.Elements;
 import util.Position;
@@ -24,14 +24,26 @@ public class Fires implements Elements {
             firesSet.add(model.randomPosition());
         }
     }
-//todo: update this methode
     @Override
     public void activation() {
+        int tour = 1;
         if (step % 2 == 0) {
             List<Position> newFires = new ArrayList<>();
-            for (Position fire : firesSet) {
-                newFires.addAll(model.nextSkipMountainAndRoad(fire));
+            for(Position fire : firesSet){
+                newFires.addAll(model.skipMountainAndRoad(fire));
             }
+            List<Position> rock = new ArrayList<>();
+            for (Position fire : newFires) {
+                if (tour < 4 && model.rock.getPositions().contains(fire)) {
+                    rock.add(fire);
+                    tour++;
+                }
+                if (tour == 4){
+                    model.rock.getPositions().remove(fire);
+                    tour = 0;
+                }
+            }
+            newFires.removeAll(rock);
             for (Position newFire : newFires)
                 grid.painter.paintFire( newFire.row(), newFire.col());
             firesSet.addAll(newFires);

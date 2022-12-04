@@ -1,4 +1,4 @@
-package elements;
+package firefighters;
 
 import model.Model;
 import model.Movement;
@@ -28,15 +28,13 @@ public class FireFighterGame extends Movement implements Model {
 
     @Override
     public void initialisation() {
-        road.initialisation(10);
-        rock.initialisation(10);
-        fireFighters.initialisation(10);
+        road.initialisation(13);
+        rock.initialisation(5);
+        fireFighters.initialisation(5);
         clouds.initialisation(5);
         fireTrucks.initialisation(5);
         mountains.initialisation(7);
-        fires.initialisation(10);
-
-
+        fires.initialisation(15);
     }
     @Override
     public void activation() {
@@ -48,19 +46,17 @@ public class FireFighterGame extends Movement implements Model {
         mountains.activation();
         fires.activation();
     }
-
-
-    public List<Position> nextSkipMountain(Position position) {
+    public List<Position> skipMountain(Position position) {
         List<Position> list = next(position);
         for(Position mountain : mountains.getPositions())
             list.remove(mountain);
         return list;
     }
-    public List<Position> nextSkipMountainAndRoad(Position position) {
-        List<Position> list = nextSkipMountain(position);
+
+    public List<Position> skipMountainAndRoad(Position position) {
+        List<Position> list = skipMountain(position);
         for(Position road : road.getPositions())
             list.remove(road);
         return list;
     }
-
 }

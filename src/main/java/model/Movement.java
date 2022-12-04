@@ -7,7 +7,6 @@ import java.util.List;
 
 public abstract class Movement {
 
-
     public int rowCount, colCount;
 
     public Movement(int rowCount, int colCount) {

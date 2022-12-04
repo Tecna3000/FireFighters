@@ -1,4 +1,5 @@
 
+import firefighters.FireFighterGrid;
 import pandemic.PandemicGrid;
 import javafx.application.Application;
 import javafx.scene.Group;
@@ -7,6 +8,7 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import view.FfPainter;
 import view.PandemicPainter;
 
 import java.net.MalformedURLException;
@@ -29,6 +31,9 @@ public class App extends Application {
         Button switchPause = new Button("Pause");
         VBox buttons = new VBox();
         HBox total = new HBox();
+//        FireFighterGrid grid = new FireFighterGrid(800,800,20,20);
+//        FfPainter painter = new FfPainter(grid);
+
         PandemicGrid grid = new PandemicGrid(800,800,20,20);
         PandemicPainter painter = new PandemicPainter(grid);
 

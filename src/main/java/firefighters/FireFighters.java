@@ -1,4 +1,4 @@
-package elements;
+package firefighters;
 
 import util.Position;
 import java.util.*;
