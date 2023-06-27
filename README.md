@@ -34,7 +34,7 @@ Implémentation d'un autre modèle au choix avec de nouvelles règles.
 ![Java](https://github.com/Tecna3000/FireFighter/assets/79359360/f56f8b0f-3910-484b-af0f-d1c80397ab39)
 
 ## IDE :
-![IntelliJ IDEA](https://github.com/Tecna3000/FireFighter/assets/79359360/17f909be-7496-460f-a8f3-c3f32dc36a30)
+![IntelliJ IDEA](https://github.com/Tecna3000/FireFighter/assets/79359360/46bfe683-2450-4981-b26c-2131e1793c13)
 
 
 ## Réalisé par :
