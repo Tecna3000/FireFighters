@@ -14,15 +14,19 @@ Le but principal de ce projet est de rendre du code qui respecte les principes S
 - Des cases montagnes qui en sont pas franchissable par le feu ni par les pompiers.
 - Des cases routes qui ne sont franchissables que par les pompiers.
 - Des cases rocailles sur lesquelles le feu mets quatre tours à se propager.
- <br>
+ <br><br>
 
 - <strong>Tâche 2 : </strong><br>
 Implémentation d'un autre modèle au choix avec de nouvelles règles.
 
-#Virus-population-médecin:
+# Virus-population-médecin:
 - Des virus qui se propagent chaque 2 tour, et qui éliminent les personnes sur leurs chemins.
 - Des médecins qui se dirigent vers les virus et les éliminent.
 - Des virologistes qui avancent de deux cases et qui éliminent le virus.
 - Des personnes malades qui se déplacent aléatoirement et qui contaminent les personnes vaccinées.
 - Des personnes vaccinées (VaccinatedPeople) qui ne se déplacent pas et qui ne peuvent pas être contaminées par le virus.
-<br> 
+<br> <br>
+
+
+## Réalisé par :
+* [Meriem RAMDANI](https://github.com/Tecna3000/)
