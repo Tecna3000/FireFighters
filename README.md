@@ -19,7 +19,7 @@ Le but principal de ce projet est de rendre du code qui respecte les principes S
 - <strong>Tâche 2 : </strong><br>
 Implémentation d'un autre modèle au choix avec de nouvelles règles.
 
-# Virus-population-médecin:
+##### Virus-population-médecin:
 - Des virus qui se propagent chaque 2 tour, et qui éliminent les personnes sur leurs chemins.
 - Des médecins qui se dirigent vers les virus et les éliminent.
 - Des virologistes qui avancent de deux cases et qui éliminent le virus.
