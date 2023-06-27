@@ -15,8 +15,8 @@ Le but principal de ce projet est de rendre du code qui respecte les principes S
 - Des cases rocailles sur lesquelles le feu mets quatre tours à se propager.
   
 - <strong>Tâche 2 : </strong><br>
-Vous devez aussi implémenter un autre modèle de votre choix avec de nouvelles règles, mais que vous
-garderez simples :
+Implémentation d'un autre modèle au choix avec de nouvelles règles.
+
 Virus-population-médecin
 Pierre-feuille-ciseau : si un élément pierre atteint une case avec un ciseau, le ciseau est détruit etc... le
 premier type à éliminer toutes ses cibles gagne.
