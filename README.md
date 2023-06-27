@@ -31,8 +31,11 @@ Implémentation d'un autre modèle au choix avec de nouvelles règles.
 <br> <br>
 
 ## Langages:
-![Java]https://github.com/Tecna3000/FireFighter/assets/79359360/f56f8b0f-3910-484b-af0f-d1c80397ab39)
-)
+![Java](https://github.com/Tecna3000/FireFighter/assets/79359360/f56f8b0f-3910-484b-af0f-d1c80397ab39)
+
+## IDE :
+![IntelliJ IDEA](https://github.com/Tecna3000/FireFighter/assets/79359360/17f909be-7496-460f-a8f3-c3f32dc36a30)
+
 
 ## Réalisé par :
 * [Meriem RAMDANI](https://github.com/Tecna3000/)
